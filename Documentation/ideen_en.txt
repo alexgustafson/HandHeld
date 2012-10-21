@@ -1,0 +1,15 @@
+Scenarios:
+
+Tourguide / Cityguide app:
+
+The Client would like an app that provides information about a particular city 
+or location. The Consumers are people or groups that are not locals of that 
+city or location. The app should provide up to date current information, for
+instance Theater schedules, public transportation schedules are prices, Concert
+schedules, current museum or gallery exhibitions. But the app should not incure 
+( cause ) high data roaming costs. All the information should be viewable offline
+after a one time download. 
+
+The Client requires a simple web interface that enables updating data as well 
+modifiying and extending the navigation structure of the app. 
+

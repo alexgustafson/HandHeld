@@ -10,6 +10,16 @@ schedules, current museum or gallery exhibitions. But the app should not incure
 ( cause ) high data roaming costs. All the information should be viewable offline
 after a one time download. 
 
-The Client requires a simple web interface that enables updating data as well 
+The Client requires a web interface that enables updating data as well 
 modifiying and extending the navigation structure of the app. 
 
+
+Magazine app:
+
+The Client is a magazine or newspaper publisher and would like to publish its
+content in electronic form. In order to ensure an excellent reading experience
+the client would like the app to download complete issues locally for offline
+reading. 
+
+The Client requires a web interface that enables publishing of issues as well
+as updateing older issues. 

@@ -22,4 +22,24 @@ the client would like the app to download complete issues locally for offline
 reading. 
 
 The Client requires a web interface that enables publishing of issues as well
-as updateing older issues. 
+as updating older issues. 
+
+
+Challenges: 
+
+In the cases above both apps need to deal with alot of data, both as database 
+data and media assets ( images, audio and video ). An on-demand style data 
+download system that downloads only the data the consumer currently needs can
+have a high cost, financially if the consumer is on a roaming mobile network, or
+as an interruption in the experience of browsing the content.
+
+In both cases the Client must be able to keep the content up to date for the app
+to be informative and interesting. In the worst case, the Client might need to
+update a small piece of data ( a small correction ) that would require the 
+Consumer to re-download all of the data. Ideally only the delta could be sent
+and the app would update it's data internally. Using an svn or git style version
+managment system in the app to handle updates would ensure that the content
+in the app mirrors what is published on the server, and that content transfer
+is effecient. This works ideally for text based information. If data is stored 
+on the server and in the app in the form of a binary database file ( sqlite for 
+example ) then content updating will be more challenging. 

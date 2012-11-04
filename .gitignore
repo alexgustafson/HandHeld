@@ -14,3 +14,6 @@
 
 #utilities folder
 /.utils/*
+
+#apple junk
+*/.DS_Store/*

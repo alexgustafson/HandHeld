@@ -13,7 +13,7 @@
 /.idea/*
 
 #utilities folder
-/.utils/*
+/utils/*
 
 #apple junk
 *.DS_Store*

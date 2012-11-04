@@ -1,6 +1,13 @@
+#codeigniter ignore files
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+
+#cloud9 ignore file ( c9.io )
 .c9revisions/*
+
+#phpstorm ignore files ( might work for all jetbrains ide ? )
+/.idea/
+/.idea/*

@@ -8,6 +8,13 @@
  */
 
 class Pages extends CI_Controller {
+
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('content_model');
+  }
+
   public function view( $page='home' )
   {
 

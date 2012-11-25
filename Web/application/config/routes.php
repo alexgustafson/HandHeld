@@ -39,7 +39,7 @@
 */
 $route['default_controller'] = 'pages';
 //$route['(:any)'] = 'pages/view/$1';
-//$route['product/:any'] = "pages/view/";
+$route['product'] = "pages";
 
 //$route['default_controller'] = "welcome";
 //$route['404_override'] = '';

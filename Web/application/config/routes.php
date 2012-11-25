@@ -37,9 +37,12 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+//$route['default_controller'] = 'pages/view/';
+//$route['(:any)'] = 'pages/view/$1';
+//$route['product/:any'] = "pages/view/";
 
-$route['default_controller'] = "welcome";
-$route['404_override'] = '';
+//$route['default_controller'] = "welcome";
+//$route['404_override'] = '';
 
 
 /* End of file routes.php */

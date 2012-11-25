@@ -24,6 +24,7 @@ class Pages extends CI_Controller {
       show_404();
     }
 
+    $data['news'] = $this->content_model->getContent();
     $data['title'] = ucfirst($page); // Capitalize the first letter
 
     $this->load->view('templates/header', $data);

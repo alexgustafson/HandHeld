@@ -7,7 +7,6 @@ ErrorDocument 404 /application/errors/error_404.php
 #php_value max_input_time 300
 
 RewriteEngine On
-#RewriteBase http://handheld.localhost/
 
 
 RewriteCond $1 !^(index\.php|css|media|pdfs|img|lib|robots\.txt)

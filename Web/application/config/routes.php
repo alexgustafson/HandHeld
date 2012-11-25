@@ -37,7 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-//$route['default_controller'] = 'pages/view/';
+$route['default_controller'] = 'pages/view/';
 //$route['(:any)'] = 'pages/view/$1';
 //$route['product/:any'] = "pages/view/";
 

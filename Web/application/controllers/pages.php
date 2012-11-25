@@ -15,7 +15,7 @@ class Pages extends CI_Controller {
     $this->load->model('content_model');
   }
 
-  public function view( $page='home' )
+  public function index( $page='home' )
   {
 
     if ( ! file_exists('application/views/pages/'.$page.'.php'))

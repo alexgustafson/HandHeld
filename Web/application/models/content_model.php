@@ -14,18 +14,16 @@
     }
 
 
-    public function getContent($slug = FALSE)
+    public function getContent($id = 1)
     {
       $this->load->database();
-      if ($slug == FALSE)
-      {
-        $this->db->select('*');
-        $this->db->from('content');
-        $this->db->join('node', 'content.id = node.parent_id');
-        $this->db->where('content.id', "1");
-        $q = $this->db->get();
-        return $q->result_array();
-      }
+
+      $this->db->select('*');
+      $this->db->from('content');
+      $this->db->where('content.id', $id);
+      $q = $this->db->get();
+
+      return $q->result_array();
 
     }
 

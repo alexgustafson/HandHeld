@@ -40,6 +40,7 @@
 
 
 $route['product'] = "pages";
+$route['content'] = 'content';
 
 $route['default_controller'] = "pages";
 //$route['404_override'] = '';

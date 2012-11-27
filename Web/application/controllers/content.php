@@ -9,33 +9,29 @@
 
 class Content extends CI_Controller {
 
+
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('content_model');
+
+    $this->load->library('contentdocument');
   }
 
-  public function getContentTable( )
+  public function show( $id = 1)
   {
-
-    $data['content'] = $this->content_model->getContent();
-    $data['title'] = ucfirst($page); // Capitalize the first letter
+    if($id == 1 || $id == 'all' )
+    {
+      $id = 1;
+    }
+    $data['content'] = 'test';
+    $data['content'] = $this->contentdocument->getTree($id);
 
     $this->load->view('templates/header', $data);
-    $this->load->view('pages/'.$page, $data);
+    //$this->load->view('content/show', $data);
     $this->load->view('templates/footer', $data);
   }
 
-  public function displayContent( )
-  {
 
-    $data['content'] = $this->content_model->getContent();
-    $data['title'] = ucfirst($page); // Capitalize the first letter
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('pages/'.$page, $data);
-    $this->load->view('templates/footer', $data);
-  }
 
 
 }

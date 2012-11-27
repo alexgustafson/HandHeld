@@ -1,11 +1,9 @@
 <?php
-  class Content_model extends CI_Model
+  class Node_model extends CI_Model
   {
-    var $id = '';
-    var $content_type = '';
-    var $create_date = '';
-    var $update_date = '';
-    var $data = '';
+    var $parent_id = '';
+    var $child_id = '';
+    var $priority = '';
 
     public function __construct()
     {
@@ -13,17 +11,22 @@
       $this->load->database();
     }
 
-    public function getContent($id = 1)
+    public function getNodesForParent($id = 1)
     {
 
       $this->db->select('*');
-      $this->db->from('content');
-      $this->db->where('content.id', $id);
+      $this->db->from('node');
+      $this->db->where('node.parent_id', $id);
+      $this->db->order_by('node.priority');
       $q = $this->db->get();
-
       $result = $q->result_array();
 
-      return $result['0'];
+      //$this->content_type = $result['content_type'];
+      //$this->id = $result['id'];
+      //$this->data = $result['data'];
+      //$this->data = json_decode($result['data']);
+
+      return $result;
 
     }
 

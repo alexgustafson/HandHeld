@@ -24,19 +24,27 @@
     public function getTree($id = 1)
     {
       $data['content'] = $this->content_model->getContent($id);
-      $data['content']['nodes'] = $this->getChildren($data['content']);
+      $data['content']['nodes'] = $this->getRoots($data['content']);
     }
 
-    public function getChildren($parent)
+    public function getChild($node)
+    {
+        return $this->content_model->getContent($node['child_id']);
+    }
+
+    public function getRoots($parent)
     {
       $nodes = $this->node_model->getNodesForParent($parent['id']);
+      foreach($nodes as $node);
+      {
+        $node['child'] = $this->getChild($node);
+      }
       return $nodes;
     }
 
-    public function getRoots()
-    {
 
-    }
+
+
 
 
   }

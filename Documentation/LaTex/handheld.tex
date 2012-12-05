@@ -1,0 +1,26 @@
+\input{preamble} 			%hier sind alle wichtigen eigenschaften 
+											%des Dokuments vorgelegt
+\begin{document}
+\pagestyle{empty}
+\pagenumbering{alph}
+\input{titlepage}
+\cleardoublepage
+\pagenumbering{roman}   % i, ii, iii, iv, ...
+\setcounter{page}{1}
+\cleardoublepage
+\tableofcontents			%Inhaltsverzeichnis
+\cleardoublepage
+\cleardoublepage
+\pagestyle{headings}
+\pagenumbering{arabic}  % 1, 2, 3, 4, ...
+\setcounter{page}{1}
+\input{kap_projektinformationen}
+\input{kap_strukturen}
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\bibliographystyle{alphadin} %oder plainnatDeutsch (alphadin geht nicht mit natbib)amsalpha
+\bibliography{literatur}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
+%\printindex										%fuer den Index
+\end{document}
+

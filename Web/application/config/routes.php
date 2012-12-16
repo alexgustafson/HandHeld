@@ -39,10 +39,10 @@
 */
 
 
-$route['product'] = "pages";
-$route['content'] = 'content';
+//$route['product'] = "pages";
+//$route['content'] = 'content';
 
-$route['default_controller'] = "pages";
+$route['default_controller'] = "dashboard";
 //$route['404_override'] = '';
 
 

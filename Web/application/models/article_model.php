@@ -75,7 +75,9 @@
         $this->db->insert('article', $data);
 
         $id = $this->db->insert_id();
-        return $this->get_article_by_id($id);
+        $articles = $this->get_article_by_id($id);
+        return $articles[0];
+
       }
 
     }

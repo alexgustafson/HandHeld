@@ -49,7 +49,11 @@
                                 <select id="selectError" name="startArticleID">
                                     <option>Select an article</option>
                                   <?php foreach ($articles as $article) : ?>
+                                  <?php if($article->id == $document->start_article) : ?>
+                                    <option value="<?php echo $article->id ?>" selected><?php echo $article->id . ' ' . $article->name ?></option>
+                                    <?php else : ?>
                                     <option value="<?php echo $article->id ?>"><?php echo $article->id . ' ' . $article->name ?></option>
+                                    <?php endif ?>
                                   <?php endforeach?>
                                 </select>
                             </div>
@@ -85,7 +89,7 @@
                 <div class="control-group">
                     <label class="control-label" for="article_name">Name</label>
                     <div class="controls">
-                        <input type="text" class="span6 article_name">
+                        <input type="text" class="span6 article_name" name="article_name">
 
                     </div>
                 </div>

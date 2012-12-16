@@ -72,4 +72,20 @@
 
       }
     }
+
+    public function set_startArticle_for_document($article_id, $document_id)
+    {
+
+      if($article_id != null)
+      {
+
+        $data = array('start_article' => $article_id);
+        $this->db->where('document.id', $document_id);
+        $this->db->update('document', $data);
+
+        $documents = $this->get_document_by_id($document_id);
+        return $documents[0];
+      }
+    }
+
   }

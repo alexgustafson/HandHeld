@@ -14,10 +14,10 @@
     <!-- end: Mobile Specific -->
 
     <!-- start: CSS -->
-    <link id="bootstrap-style" href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link id="base-style" href="css/style.css" rel="stylesheet">
-    <link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
+    <link id="bootstrap-style" href="<?php echo base_url() ; ?>css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url() ; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link id="base-style" href="<?php echo base_url() ; ?>css/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="<?php echo base_url() ; ?>css/style-responsive.css" rel="stylesheet">
     <!-- end: CSS -->
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- start: Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url() ; ?>img/favicon.ico">
     <!-- end: Favicon -->
 
 </head>
@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="index.html"> <img alt="Optimus Dashboard" src="img/logo20.png" /> <span>Optimus Dashboard</span></a>
+            <a class="brand" href="<?php echo base_url() ; ?>index.php"> <img alt="Optimus Dashboard" src="<?php echo base_url() ; ?>img/logo20.png" /> <span>Optimus Dashboard</span></a>
 
             <!-- start: Header Menu -->
             <div class="btn-group pull-right" >
@@ -65,7 +65,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="#">Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="login.html">Logout</a></li>
+                    <li><a href="<?php echo base_url() ; ?>login.html">Logout</a></li>
                 </ul>
                 <!-- end: User Dropdown -->
             </div>

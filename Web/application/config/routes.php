@@ -40,7 +40,7 @@
 
 
 //$route['product'] = "pages";
-//$route['content'] = 'content';
+$route['documents'] = 'documents';
 
 $route['default_controller'] = "dashboard";
 //$route['404_override'] = '';

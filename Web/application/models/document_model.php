@@ -56,11 +56,20 @@
 
         $id = $this->db->insert_id();
         return $this->get_document_by_id($id);
-
-
       }
-
       //maybe error if it gets here
       redirect('/documents');
+    }
+
+    public function delete_document($id)
+    {
+
+      if($id != null) //delete
+      {
+
+        $this->db->where("document.id",$id);
+        $this->db->delete('document');
+
+      }
     }
   }

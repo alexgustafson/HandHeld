@@ -16,7 +16,7 @@
 
     }
 
-    public function index( $action = null )
+    public function index($action = null)
     {
 
       $data['action'] = 'Overview';
@@ -30,10 +30,10 @@
       $this->load->view('templates/footer', $data);
     }
 
-    public function create( $action = null )
+    public function create($action = null)
     {
 
-      if(!$_POST)
+      if (!$_POST)
       {
         $data['action'] = 'Create';
 
@@ -42,7 +42,7 @@
         $this->load->view('documents/templates/contentheader', $data);
         $this->load->view('documents/index.php', $data);
         $this->load->view('templates/footer', $data);
-      }else
+      } else
       {
         $data['action'] = 'Overview';
         $data['documents'] = $this->Document_model->set_document();
@@ -55,14 +55,14 @@
       }
     }
 
-    public function edit( $id )
+    public function edit($id)
     {
-      if($id == 'cancel')
+      if ($id == 'cancel')
       {
-        redirect(base_url().'documents/');
+        redirect(base_url() . 'documents/');
       }
 
-      if(!$_POST)
+      if (!$_POST)
       {
         //no post data so get document to edit and serve the 'Edit' template
         $data['action'] = 'Edit';
@@ -74,7 +74,7 @@
         $this->load->view('documents/index.php', $data);
         $this->load->view('templates/footer', $data);
 
-      }else
+      } else
       {
         //post data is available, so save it. Then serve the 'Overview' template
         $data['documents'] = $this->Document_model->set_document();
@@ -86,6 +86,23 @@
         $this->load->view('documents/index.php', $data);
         $this->load->view('templates/footer', $data);
       }
+    }
+
+    public function delete($id = null)
+    {
+      $data['documents'] = $this->Document_model->delete_document($id);
+      redirect(base_url() . 'documents/');
+    }
+
+    public function build($id = null)
+    {
+      $data['action'] = 'Build';
+      $data['documents'] = $this->Document_model->get_document_by_id($id);
+
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/leftmenu', $data);
+      $this->load->view('documents/index.php', $data);
+      $this->load->view('templates/footer', $data);
     }
 
 

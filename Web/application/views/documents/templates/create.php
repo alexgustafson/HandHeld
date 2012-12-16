@@ -41,7 +41,7 @@
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header" data-original-title>
-                <h2><i class="icon-edit"></i><span class="break"></span>Create Document</h2>
+                <h2><i class="icon-edit"></i><span class="break"></span>Edit Document</h2>
 
                 <div class="box-icon">
                     <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>

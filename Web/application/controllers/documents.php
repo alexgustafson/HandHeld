@@ -19,14 +19,43 @@
     public function index( $action = null )
     {
 
-      $data['action'] = 'overview';
+      $data['action'] = 'Overview';
 
       $data['documents'] = $this->Document_model->get_all_documents();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);
-      $this->load->view('templates/contentheader', $data);
+      $this->load->view('documents/templates/contentheader', $data);
       $this->load->view('documents/index.php', $data);
       $this->load->view('templates/footer', $data);
+    }
+
+    public function create( $action = null )
+    {
+
+      if(!$_POST)
+      {
+        $data['action'] = 'Create';
+        $data['documents'] = $this->Document_model->get_all_documents();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/leftmenu', $data);
+        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('documents/index.php', $data);
+        $this->load->view('templates/footer', $data);
+      }else
+      {
+        $data['action'] = 'Overview';
+        $data['documents'] = $this->Document_model->set_document();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/leftmenu', $data);
+        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('documents/index.php', $data);
+        $this->load->view('templates/footer', $data);
+      }
+
+
+
     }
   }

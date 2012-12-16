@@ -26,7 +26,11 @@
     <td class="center"><?php echo $document->version ?></td>
     <td class="center"><?php echo $document->last_publication_date ?></td>
     <td class="center">
+        <?php if($document->status == "Online") : ?>
         <span class="label label-success"><?php echo $document->status ?></span>
+        <?php else: ?>
+        <span class="label"><?php echo $document->status ?></span>
+        <?php endif ?>
     </td>
     <td class="center">
         <a class="btn btn-success" href="#">

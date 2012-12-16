@@ -26,7 +26,9 @@
 
     public function get_document_by_id($id = null)
     {
-      $this->db->select("*")->from('document')->where('id',$id);
+      $this->db->select('*');
+      $this->db->from('document');
+      $this->db->where('document.id', $id);
       $query = $this->db->get();
       return $query->result();
     }
@@ -42,15 +44,15 @@
       {
 
         $data = array('name' => $name);
-        $this->db->where('id', $id);
-        $this->db->update('documents', $data);
+        $this->db->where('document.id', $id);
+        $this->db->update('document', $data);
 
         return $this->get_document_by_id($id);
 
       }else //insert
       {
-        $data = array('name' => $name);
-        $this->db->insert('documents', $data);
+        $data = array('name' => $name, 'status' => 'Inactive', 'version' => "0.0");
+        $this->db->insert('document', $data);
 
         $id = $this->db->insert_id();
         return $this->get_document_by_id($id);

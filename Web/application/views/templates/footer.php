@@ -28,16 +28,13 @@
 
 <!-- start: JavaScript-->
 
-<script src="<?php echo base_url() ; ?>js/jquery-1.7.2.min.js"></script>'
-<script src="<?php echo base_url() ; ?>js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ; ?>js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ; ?>js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ; ?>js/jquery.cookie.js"></script>
+<script type="text/javascript" src='<?php echo base_url() ; ?>js/fullcalendar.min.js'></script>
 
-<script src="<?php echo base_url() ; ?>js/bootstrap.js"></script>
-
-<script src="<?php echo base_url() ; ?>js/jquery.cookie.js"></script>
-
-<script src='<?php echo base_url() ; ?>js/fullcalendar.min.js'></script>
-
-<script src='<?php echo base_url() ; ?>js/jquery.dataTables.min.js'></script>
+<script type="text/javascript" src='<?php echo base_url() ; ?>js/jquery.dataTables.min.js'></script>
 
 <script src="<?php echo base_url() ; ?>js/excanvas.js"></script>
 <script src="<?php echo base_url() ; ?>js/jquery.flot.min.js"></script>

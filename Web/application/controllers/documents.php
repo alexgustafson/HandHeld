@@ -15,21 +15,15 @@
 
     }
 
-    public function index( $page='home' )
+    public function index( $action = null )
     {
 
-      if ( ! file_exists('application/views/pages/'.$page.'.php'))
-      {
-        // Whoops, we don't have a page for that!
-        show_404();
-      }
-
-      $data['title'] = ucfirst($page); // Capitalize the first letter
+      $data['action'] = 'overview';
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);
       $this->load->view('templates/contentheader', $data);
-      $this->load->view('pages/'.$page, $data);
+      $this->load->view('documents/index.php', $data);
       $this->load->view('templates/footer', $data);
     }
   }

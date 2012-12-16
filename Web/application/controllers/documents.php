@@ -12,6 +12,7 @@
     public function __construct()
     {
       parent::__construct();
+      $this->load->model('Document_model');
 
     }
 
@@ -19,6 +20,8 @@
     {
 
       $data['action'] = 'overview';
+
+      $data['documents'] = $this->Document_model->get_all_documents();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);

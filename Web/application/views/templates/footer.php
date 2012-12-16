@@ -68,7 +68,7 @@
 
 <script type="text/javascript" language="JavaScript">
 
-    function message_welcome1(){
+    /*function message_welcome1(){
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
             title: 'Welcome on Optimus Dashboard',
@@ -83,41 +83,8 @@
             // (string | optional) the class name you want to apply to that specific message
             class_name: 'my-sticky-class'
         });
-    }
+    }*/
 
-    function message_welcome2(){
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Optimus is Amazing Theme',
-            // (string | mandatory) the text inside the notification
-            text: 'Optimus works on all devices, computers, tablets and smartphones. Optimus has lots of great features. Try It!',
-            // (string | optional) the image to display on the left
-            image: 'img/avatar.jpg',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: false,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-    }
-
-    function message_welcome3(){
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Buy Optimus!',
-            // (string | mandatory) the text inside the notification
-            text: 'This great template can be yours today.',
-            // (string | optional) the image to display on the left
-            image: 'img/avatar.jpg',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: false,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'gritter-light'
-        });
-    }
 
     $(document).ready(function(){
 

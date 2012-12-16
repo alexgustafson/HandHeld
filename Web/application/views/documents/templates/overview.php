@@ -36,7 +36,7 @@
         <a class="btn btn-success" href="#">
             <i class="icon-zoom-in icon-white"></i>
         </a>
-        <a class="btn btn-info" href="#">
+        <a class="btn btn-info" href="edit/<?php echo $document->id ?>">
             <i class="icon-edit icon-white"></i>
         </a>
         <a class="btn btn-danger" href="#">

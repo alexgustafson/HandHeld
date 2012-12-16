@@ -36,7 +36,6 @@
       if(!$_POST)
       {
         $data['action'] = 'Create';
-        $data['documents'] = $this->Document_model->get_all_documents();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/leftmenu', $data);
@@ -54,8 +53,40 @@
         $this->load->view('documents/index.php', $data);
         $this->load->view('templates/footer', $data);
       }
-
-
-
     }
+
+    public function edit( $id )
+    {
+      if($id == 'cancel')
+      {
+        redirect(base_url().'documents/');
+      }
+
+      if(!$_POST)
+      {
+        //no post data so get document to edit and serve the 'Edit' template
+        $data['action'] = 'Edit';
+        $data['documents'] = $this->Document_model->get_document_by_id($id);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/leftmenu', $data);
+        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('documents/index.php', $data);
+        $this->load->view('templates/footer', $data);
+
+      }else
+      {
+        //post data is available, so save it. Then serve the 'Overview' template
+        $data['documents'] = $this->Document_model->set_document();
+        $data['action'] = 'Overview';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/leftmenu', $data);
+        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('documents/index.php', $data);
+        $this->load->view('templates/footer', $data);
+      }
+    }
+
+
   }

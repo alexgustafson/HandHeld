@@ -57,6 +57,7 @@
         $id = $this->db->insert_id();
         return $this->get_document_by_id($id);
 
+
       }
 
       //maybe error if it gets here

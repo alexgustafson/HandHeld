@@ -20,7 +20,8 @@ class Contenttype_model extends CI_Model
     $result = array();
     foreach($data as $content_type)
     {
-      $content_type['fields'] = $this->Fieldtype_model->getFieldsForContentType($content_type->id);
+      $fields = $this->Fieldtype_model->getFieldsForContentType($content_type->id);
+      $content_type->fields = $fields;
       $result[$content_type->id] = $content_type;
 
     }

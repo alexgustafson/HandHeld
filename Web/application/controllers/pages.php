@@ -12,7 +12,7 @@ class Pages extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('content_model');
+
   }
 
   public function index( $page='home' )
@@ -24,7 +24,6 @@ class Pages extends CI_Controller {
       show_404();
     }
 
-    $data['content'] = $this->content_model->getContent();
     $data['title'] = ucfirst($page); // Capitalize the first letter
 
     $this->load->view('templates/header', $data);

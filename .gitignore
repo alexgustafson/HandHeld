@@ -11,6 +11,7 @@
 #phpstorm ignore files ( might work for all jetbrains ide ? )
 /.idea/
 /.idea/*
+*/.idea/
 
 #utilities folder
 /utils/*

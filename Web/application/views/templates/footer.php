@@ -28,7 +28,7 @@
 
 <!-- start: JavaScript-->
 
-<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ; ?>js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ; ?>js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ; ?>js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ; ?>js/jquery.cookie.js"></script>
@@ -86,7 +86,7 @@
     }*/
 
 
-    $(document).ready(function(){
+    /*$(document).ready(function(){
 
         setTimeout("message_welcome1()",5000);
         setTimeout("message_welcome2()",10000);
@@ -97,7 +97,7 @@
         setInterval(f_sales, 5000);
         setInterval(live_notifications_center, 5000);
 
-    });
+    });*/
 </script>
 <!-- end: JavaScript-->
 

@@ -287,9 +287,13 @@ function template_functions(){
 		e.preventDefault();
 		$('#myModal').modal('show');
 	});
-	
-	
-	/* ---------- Progress  ---------- */
+    $('.btn-add').click(function(e){
+        e.preventDefault();
+        $('#myModalAdd').modal('show');
+    });
+
+
+    /* ---------- Progress  ---------- */
 
 		$(".simpleProgress").progressbar({
 			value: 89

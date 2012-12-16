@@ -4,7 +4,7 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Optimus Dashboard</title>
+    <title>HandHeld</title>
     <meta name="description" content="Optimus Dashboard Bootstrap Admin Template.">
     <meta name="author" content="Łukasz Holeczek">
     <!-- end: Meta -->
@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="<?php echo base_url() ; ?>index.php"> <img alt="Optimus Dashboard" src="<?php echo base_url() ; ?>img/logo20.png" /> <span>Optimus Dashboard</span></a>
+            <a class="brand" href="<?php echo base_url() ; ?>index.php"> <img alt="Optimus Dashboard" src="<?php echo base_url() ; ?>img/logo20.png" /> <span>HandHeld</span></a>
 
             <!-- start: Header Menu -->
             <div class="btn-group pull-right" >

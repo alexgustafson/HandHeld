@@ -24,6 +24,15 @@
       return $data;
     }
 
+    public function get_all_article_types()
+    {
+      $this->db->select('*');
+      $this->db->from('article_type');
+      $query = $this->db->get();
+      $data = $query->result();
+      return $data;
+    }
+
     public function get_article_by_id($id = null)
     {
       $this->db->select('*');

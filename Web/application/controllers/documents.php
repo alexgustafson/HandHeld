@@ -99,6 +99,39 @@
       $data['action'] = 'Build';
       $data['documents'] = $this->Document_model->get_document_by_id($id);
 
+      //load all articles
+      $this->load->model('Article_model');
+      $data['articles'] = $this->Article_model->get_all_articles();
+      $data['article_types'] = $this->Article_model->get_all_article_types();
+
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/leftmenu', $data);
+      $this->load->view('documents/index.php', $data);
+      $this->load->view('templates/footer', $data);
+    }
+
+    public function modify()
+    {
+
+      $id = $this->input->post('document_id');
+      $action = $this->input->post('action');
+      $startArticleID = $this->input->post('startArticleID');
+
+      if($action == 'setStartArticle')
+      {
+
+      }elseif($action == 'create_and_setStartArticle')
+      {
+
+      }
+
+      $data['action'] = 'Build';
+      $data['documents'] = $this->Document_model->get_document_by_id($id);
+
+      //load all articles
+      $this->load->model('Article_model');
+      $data['articles'] = $this->Article_model->get_all_articles();
+
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);
       $this->load->view('documents/index.php', $data);

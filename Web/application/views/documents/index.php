@@ -1,3 +1,3 @@
 
 
-<?php $this->load->view('documents/templates/'.$action) ; ?>
+<?php $this->load->view('documents/templates/'.strtolower($action)) ; ?>

@@ -20,7 +20,6 @@
 <hr>
 
 <footer>
-    <p class="pull-left">&copy; <a href="" target="_blank">creativeLabs</a> 2012</p>
     <p class="pull-right">Powered by: <a href="#">Optimus Dashboard</a></p>
 </footer>
 

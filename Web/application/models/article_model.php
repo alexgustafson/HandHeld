@@ -93,4 +93,14 @@
 
       }
     }
+
+    public function get_fields_for_article($article)
+    {
+      $this->db->select('*');
+      $this->db->from('fields');
+      $this->db->where('fields.article_type_id',$article->type);
+      $query = $this->db->get();
+      return $query->result();
+    }
+
   }

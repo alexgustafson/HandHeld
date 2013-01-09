@@ -22,7 +22,7 @@
       $this->db->from('fields');
       $this->db->where('content_type_id', $content_type_id);
       $query = $this->db->get();
-      $data = $query->resutl();
+      $data = $query->result();
       return $data;
     }
 

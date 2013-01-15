@@ -1,8 +1,14 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: alex_gustafson
- * Date: 16.12.12
- * Time: 14:04
- * To change this template use File | Settings | File Templates.
- */
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <!-- start: Main Menu -->
+        <div class="span2 main-menu-span">
+            <div class="nav-collapse sidebar-nav">
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li class="nav-header hidden-tablet">Navigation</li>
+                    <li><a href="<?php echo base_url() ; ?>index.php"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                    <li><a href="<?php echo base_url() ; ?>documents/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Documents</span></a></li>
+                </ul>
+            </div><!--/.well -->
+        </div><!--/span-->
+        <!-- end: Main Menu -->

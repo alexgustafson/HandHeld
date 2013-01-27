@@ -18,3 +18,12 @@
 
 #apple junk
 *.DS_Store*
+
+#LaTex ignorefiles
+/Documentation/LaTex/*.log
+/Documentation/LaTex/*.aux
+/Documentation/LaTex/*.bib#
+/Documentation/LaTex/*.idx
+/Documentation/LaTex/*.out
+/Documentation/LaTex/*.toc
+/Documentation/LaTex/*.gz

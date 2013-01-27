@@ -13,7 +13,6 @@ class Articles extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('Article_model');
-    $this->load->model('Fieldtype_model');
 
   }
 
@@ -38,13 +37,14 @@ class Articles extends CI_Controller {
     $data['action'] = 'Build';
 
     $data['articles'] = $this->Article_model->get_article_by_id($id);
-    $data['article_types'] = $this->Article_model->get_all_article_types();
+    $data['article_types'] = $this->Article_model->get_all_templates();
 
-      $this->load->view('templates/header', $data);
+    $this->load->view('templates/header', $data);
     $this->load->view('templates/leftmenu', $data);
     $this->load->view('articles/templates/contentheader', $data);
     $this->load->view('articles/index.php', $data);
     $this->load->view('templates/footer', $data);
+
   }
 
   public function edit($id)
@@ -59,7 +59,7 @@ class Articles extends CI_Controller {
       //no post data so get document to edit and serve the 'Edit' template
       $data['action'] = 'Edit';
       $data['articles'] = $this->Article_model->get_article_by_id($id);
-      $data['article_types'] = $this->Article_model->get_all_article_types();
+      $data['article_types'] = $this->Article_model->get_all_templates();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);
@@ -79,6 +79,14 @@ class Articles extends CI_Controller {
       $this->load->view('articles/index.php', $data);
       $this->load->view('templates/footer', $data);
     }
+  }
+
+  public function create_panel_for_template($template_id)
+  {
+    $this->load->model('Template_model');
+    $fields = $this->Template_model->get_fields_for_template($template_id);
+
+    echo json_encode($fields);
   }
 
 }

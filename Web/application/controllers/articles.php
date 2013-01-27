@@ -47,4 +47,38 @@ class Articles extends CI_Controller {
     $this->load->view('templates/footer', $data);
   }
 
+  public function edit($id)
+  {
+    if ($id == 'cancel')
+    {
+      redirect(base_url() . 'articles/');
+    }
+
+    if (!$_POST)
+    {
+      //no post data so get document to edit and serve the 'Edit' template
+      $data['action'] = 'Edit';
+      $data['articles'] = $this->Article_model->get_article_by_id($id);
+      $data['article_types'] = $this->Article_model->get_all_article_types();
+
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/leftmenu', $data);
+      $this->load->view('articles/templates/contentheader', $data);
+      $this->load->view('articles/index.php', $data);
+      $this->load->view('templates/footer', $data);
+
+    } else
+    {
+      //post data is available, so save it. Then serve the 'Overview' template
+      $data['articles'] = $this->Article_model->get_all_articles();
+      $data['action'] = 'Overview';
+
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/leftmenu', $data);
+      $this->load->view('articles/templates/contentheader', $data);
+      $this->load->view('articles/index.php', $data);
+      $this->load->view('templates/footer', $data);
+    }
+  }
+
 }

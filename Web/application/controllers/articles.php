@@ -14,6 +14,7 @@ class Articles extends CI_Controller {
     parent::__construct();
     $this->load->model('Article_model');
     $this->load->model('Fieldtype_model');
+
   }
 
   public function index($action = null)
@@ -23,7 +24,23 @@ class Articles extends CI_Controller {
 
     $data['articles'] = $this->Article_model->get_all_articles();
 
+
     $this->load->view('templates/header', $data);
+    $this->load->view('templates/leftmenu', $data);
+    $this->load->view('articles/templates/contentheader', $data);
+    $this->load->view('articles/index.php', $data);
+    $this->load->view('templates/footer', $data);
+  }
+
+  public function build($id = null)
+  {
+
+    $data['action'] = 'Build';
+
+    $data['articles'] = $this->Article_model->get_article_by_id($id);
+    $data['article_types'] = $this->Article_model->get_all_article_types();
+
+      $this->load->view('templates/header', $data);
     $this->load->view('templates/leftmenu', $data);
     $this->load->view('articles/templates/contentheader', $data);
     $this->load->view('articles/index.php', $data);

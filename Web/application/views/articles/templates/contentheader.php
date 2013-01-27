@@ -11,7 +11,7 @@
           <div>
               <ul class="breadcrumb">
                   <li>
-                      <a href="#">Article Template Maganer</a> <span class="divider">/</span>
+                      <a href="#">Articles</a> <span class="divider">/</span>
                   </li>
                   <li>
                       <a href="#"><?php echo $action ?></a>
@@ -21,7 +21,7 @@
           <div class="sortable row-fluid">
 
               <div class="box-small span2">
-                  <a href="create" data-rel="tooltip" title="Create New Document" class="box-small-link" href="#">
+                  <a href="create" data-rel="tooltip" title="Create New Article" class="box-small-link" href="#">
                       <div id="create_new">New</div>
                   </a>
 

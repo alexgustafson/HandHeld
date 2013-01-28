@@ -37,7 +37,7 @@ class Template_model extends CI_Model {
     $this->db->where('t.id', $id);
     $query = $this->db->get();
     $data = $query->result();
-    $template = array();
+    $template = '';
     foreach($data as $item){
       $template = $item;
     }
@@ -164,7 +164,7 @@ class Template_model extends CI_Model {
     $template = $this->get_template($id);
     $fields = array();
 
-    if($template->isComposite == 0)
+    if($template->isComposite == 1)
     {
       $child_templates = $this->get_child_templates($id);
       foreach($child_templates as $item)

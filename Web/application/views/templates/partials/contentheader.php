@@ -11,7 +11,7 @@
           <div>
               <ul class="breadcrumb">
                   <li>
-                      <a href="#">Articles</a> <span class="divider">/</span>
+                      <a href="#">Templates</a> <span class="divider">/</span>
                   </li>
                   <li>
                       <a href="#"><?php echo $action ?></a>
@@ -20,7 +20,7 @@
           </div>
           <div class="sortable row-fluid">
 
-            <a  href="/articles/edit/new"><button class="btn btn-large">Create New Article</button></a>
+            <a  href="/templates/new"><button class="btn btn-large">Create New Template</button></a>
 
 
           </div>

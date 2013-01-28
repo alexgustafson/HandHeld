@@ -22,13 +22,11 @@
         <?php foreach($articles as $article) : ?>
           <tr>
             <td><?php echo $article->name ?></td>
-            <td class="center"><?php echo $article->type ?></td>
+            <td class="center"><?php echo $article->template_name ?></td>
             <td class="center"><?php echo $article->data ?></td>
 
             <td class="center">
-              <a class="btn btn-success" href="build/<?php echo $article->id ?>">
-                <i class="icon-zoom-in icon-white"></i>
-              </a>
+
               <a class="btn btn-info" href="edit/<?php echo $article->id ?>">
                 <i class="icon-edit icon-white"></i>
               </a>

@@ -13,52 +13,50 @@
 <div id="content" class="span10">
   <!-- start: Content -->
 
-  <div>
-    <ul class="breadcrumb">
-      <li>
-        <a href="<?php echo base_url() ?>articles/">Articles</a> <span class="divider">/</span>
-      </li>
-      <li>
-        <a href="#"><?php echo $action ?></a> <span class="divider">/</span>
-      </li>
-      <li>
-        <a href="#"><?php echo $article->name ?></a>
-      </li>
-    </ul>
-  </div>
-
-
   <div class="row-fluid">
     <div class="box span12">
       <div class="box-header" data-original-title>
         <h2>Article</h2>
-
-
       </div>
 
       <div class="box-content">
 
         <?php echo form_open('articles/modify', array('class' => 'form-horizontal', 'id' => 'myform')); ?>
         <fieldset>
+
           <div class="control-group">
-            <label class="control-label" for="selectError">Article</label>
+            <label class="control-label" for="typeahead">Name</label>
+            <div class="controls">
+              <input type="text" class="span6" value="<?php echo $article->name ?>">
+
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="selectError">Template</label>
 
             <div class="controls">
               <select id="selectError" name="articleType">
-                <option>Select an article type</option>
-                <?php foreach ($article_types as $type) : ?>
-                  <?php if ($type->id == $article->type_id) : ?>
-                    <option value="<?php echo $type->id ?>" selected><?php echo $type->id . '  ' . $type->name ?></option>
+                <!-- <option>Select an article type</option> -->
+                <?php foreach ($templates as $template) : ?>
+                  <?php if ($template->id == $article->template_id) : ?>
+                    <option value="<?php echo $template->id ?>" selected><?php echo  $template->name ?></option>
                   <?php else : ?>
-                    <option value="<?php echo $type->id ?>"><?php echo $type->id . '  ' . $type->name ?></option>
+                    <option value="<?php echo $template->id ?>"><?php echo  $template->name ?></option>
                   <?php endif ?>
                 <?php endforeach?>
               </select>
             </div>
+          </div>
 
+          <div class="template_panels">
 
+            <?php foreach($template_panels as $panel): ?>
+              <?php echo $panel ?>
+            <?php endforeach ?>
 
           </div>
+
           <div class="form-actions">
             <input type="hidden" name="article_id" value="<?php echo $article->id ?>">
             <input type="hidden" name="action" value="setType">

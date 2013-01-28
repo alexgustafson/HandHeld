@@ -13,6 +13,7 @@ class Articles extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('Article_model');
+    $this->load->model('Template_model');
 
   }
 
@@ -36,8 +37,17 @@ class Articles extends CI_Controller {
 
     $data['action'] = 'Build';
 
-    $data['articles'] = $this->Article_model->get_article_by_id($id);
-    $data['article_types'] = $this->Article_model->get_all_templates();
+    if($id != null && $id != 'new')
+    {
+      $data['articles'] = $this->Article_model->get_article_by_id($id);
+
+      $article = $this->Article_model->get_article_by_id($id);
+      $article = $article[0];
+
+      $data['template_panels'] = $this->create_panel_for_template($article->template_id);
+    }
+
+    $data['templates'] = $this->Template_model->get_all_templates();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/leftmenu', $data);
@@ -54,12 +64,22 @@ class Articles extends CI_Controller {
       redirect(base_url() . 'articles/');
     }
 
+    if($id != null && $id != 'new')
+    {
+      $data['articles'] = $this->Article_model->get_article_by_id($id);
+
+      $article = $this->Article_model->get_article_by_id($id);
+      $article = $article[0];
+
+      $data['template_panels'] = $this->create_panel_for_template($article->template_id);
+    }
+
     if (!$_POST)
     {
       //no post data so get document to edit and serve the 'Edit' template
       $data['action'] = 'Edit';
       $data['articles'] = $this->Article_model->get_article_by_id($id);
-      $data['article_types'] = $this->Article_model->get_all_templates();
+      $data['templates'] = $this->Template_model->get_all_templates();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);
@@ -81,12 +101,29 @@ class Articles extends CI_Controller {
     }
   }
 
-  public function create_panel_for_template($template_id)
+  public function create_panel_for_template_ajax($template_id)
   {
     $this->load->model('Template_model');
     $fields = $this->Template_model->get_fields_for_template($template_id);
 
     echo json_encode($fields);
+  }
+
+  public function create_panel_for_template($template_id, $data = null)
+  {
+    $this->load->helper('Optimus');
+    $this->load->model('Template_model');
+    $fields = $this->Template_model->get_fields_for_template($template_id);
+
+    $template_fields = array();
+    $i = 0;
+    foreach($fields as $field)
+    {
+      $template_fields[$i] = create_html_for_field($field, $data);
+      $i++;
+    }
+
+    return $template_fields;
   }
 
 }

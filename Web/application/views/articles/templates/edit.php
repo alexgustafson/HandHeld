@@ -23,16 +23,14 @@
             <input type="text" class="span6 typeahead" id="typeahead" name="document_name" value="<?php echo $article->name ?>">
           </div>
         </div>
-        
-        <?php if($article->isComposite): ?>
 
-          //todo : loop through all child articles recursivley
+        <div class="template_panels">
 
-        <? else: ?>
+          <?php foreach($template_panels as $panel): ?>
+            <?php echo $panel ?>
+          <?php endforeach ?>
 
-          //todo : loop through all fields
-
-        <?php endif ?>
+        </div>
         
         <div class="form-actions">
           <input type="hidden" name="document_id" value="<?php echo $article->id ?>">

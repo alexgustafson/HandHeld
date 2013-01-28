@@ -15,18 +15,18 @@ class Template_model extends CI_Model {
     $this->load->database();
   }
 
-  public function get_all_template()
+  public function get_all_templates()
   {
     $this->db->select('*');
     $this->db->from('template');
     $query = $this->db->get();
     $data = $query->result();
-    $template = array();
+    $templates = array();
     foreach($data as $item){
-      $template = $item;
+      $templates[$item->id] = $item;
     }
 
-    return $template;
+    return $templates;
   }
 
 

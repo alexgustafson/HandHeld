@@ -20,24 +20,9 @@
           </div>
           <div class="sortable row-fluid">
 
-              <div class="box-small span2">
-                  <a href="create" data-rel="tooltip" title="Create New Article" class="box-small-link" href="#">
-                      <div id="create_new">New</div>
-                  </a>
+            <a  href="/articles/build/new"><button class="btn btn-large">Create New Template</button></a>
+            <a  href="/articles/edit/new"><button class="btn btn-large">Create New Article</button></a>
 
-              </div>
-
-              <div class="box-small span2">
-
-              </div>
-
-              <div class="box-small span2">
-
-              </div>
-
-              <div class="box-small span2">
-
-              </div>
 
           </div>
 

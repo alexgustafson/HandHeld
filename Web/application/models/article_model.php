@@ -17,7 +17,7 @@
 
     public function get_all_articles()
     {
-      $this->db->select('a.id, a.name, a.data, t.name type, t.id type_id, t.isComposite');
+      $this->db->select('a.id, a.name, a.data, t.name template_name, t.id template_id, t.isComposite');
       $this->db->from('article a');
       $this->db->join('template t', 't.id = a.template_id');
       $query = $this->db->get();
@@ -28,7 +28,7 @@
 
     public function get_article_by_id($id = null)
     {
-      $this->db->select('a.id, a.name, a.data, t.name type, t.id type_id, t.isComposite');
+      $this->db->select('a.id, a.name, a.data, t.name template_name, t.id template_id, t.isComposite');
       $this->db->from('article a');
       $this->db->join('template t', 't.id = a.template_id');
       $this->db->where('a.id', $id);

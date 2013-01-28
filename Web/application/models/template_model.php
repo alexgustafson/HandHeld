@@ -15,6 +15,26 @@ class Template_model extends CI_Model {
     $this->load->database();
   }
 
+  public function get_all_fields()
+  {
+    $this->db->select('*');
+    $this->db->from('fields f');
+    $query = $this->db->get();
+    $data = $query->result();
+
+    return $data;
+  }
+
+  public function get_all_field_types()
+  {
+    $this->db->select('*');
+    $this->db->from('field_type ft');
+    $query = $this->db->get();
+    $data = $query->result();
+
+    return $data;
+  }
+
   public function get_fields_for_template($id)
   {
     if(isset($id))
@@ -47,6 +67,7 @@ class Template_model extends CI_Model {
                     'template_id' => $template_id,
                     'field_type_id' => $field_type_id,
                     'order' => $order);
+      $this->db->update('fields', $data);
 
       return $this->get_document_by_id($id);
 
@@ -58,8 +79,34 @@ class Template_model extends CI_Model {
                     'order' => $order);
 
       $this->db->insert('fields', $data);
-
       $id = $this->db->insert_id();
+
+      return $this->get_document_by_id($id);
+    }
+    //maybe error if it gets here
+    redirect('/documents');
+  }
+
+  public function set_field_type()
+  {
+
+    $id = $this->input->post('id');
+    $name = $this->input->post('name');
+
+    if($id) //update
+    {
+
+      $data = array('name' => $name);
+      $this->db->insert('field_type', $data);
+
+      return $this->get_document_by_id($id);
+
+    }else //insert
+    {
+      $data = array('name' => $name);
+      $this->db->insert('field_type', $data);
+      $id = $this->db->insert_id();
+
       return $this->get_document_by_id($id);
     }
     //maybe error if it gets here

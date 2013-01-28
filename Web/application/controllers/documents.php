@@ -24,11 +24,11 @@
 
       $data['documents'] = $this->Document_model->get_all_documents();
 
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/leftmenu', $data);
-      $this->load->view('documents/templates/contentheader', $data);
+      $this->load->view('partials/header', $data);
+      $this->load->view('partials/leftmenu', $data);
+      $this->load->view('documents/partials/contentheader', $data);
       $this->load->view('documents/index.php', $data);
-      $this->load->view('templates/footer', $data);
+      $this->load->view('partials/footer', $data);
     }
 
     public function create($action = null)
@@ -38,21 +38,21 @@
       {
         $data['action'] = 'Create';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/leftmenu', $data);
-        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('partials/header', $data);
+        $this->load->view('partials/leftmenu', $data);
+        $this->load->view('documents/partials/contentheader', $data);
         $this->load->view('documents/index.php', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('partials/footer', $data);
       } else
       {
         $data['action'] = 'Overview';
         $data['documents'] = $this->Document_model->set_document();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/leftmenu', $data);
-        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('partials/header', $data);
+        $this->load->view('partials/leftmenu', $data);
+        $this->load->view('documents/partials/contentheader', $data);
         $this->load->view('documents/index.php', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('partials/footer', $data);
       }
     }
 
@@ -69,11 +69,11 @@
         $data['action'] = 'Edit';
         $data['documents'] = $this->Document_model->get_document_by_id($id);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/leftmenu', $data);
-        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('partials/header', $data);
+        $this->load->view('partials/leftmenu', $data);
+        $this->load->view('documents/partials/contentheader', $data);
         $this->load->view('documents/index.php', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('partials/footer', $data);
 
       } else
       {
@@ -81,11 +81,11 @@
         $data['documents'] = $this->Document_model->set_document();
         $data['action'] = 'Overview';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/leftmenu', $data);
-        $this->load->view('documents/templates/contentheader', $data);
+        $this->load->view('partials/header', $data);
+        $this->load->view('partials/leftmenu', $data);
+        $this->load->view('documents/partials/contentheader', $data);
         $this->load->view('documents/index.php', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('partials/footer', $data);
       }
     }
 
@@ -102,12 +102,12 @@
 
       //load all articles
       $data['articles'] = $this->Article_model->get_all_articles();
-      $data['templates'] = $this->Template_model->get_all_template();
+      $data['templates'] = $this->Template_model->get_all_templates();
 
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/leftmenu', $data);
+      $this->load->view('partials/header', $data);
+      $this->load->view('partials/leftmenu', $data);
       $this->load->view('documents/index.php', $data);
-      $this->load->view('templates/footer', $data);
+      $this->load->view('partials/footer', $data);
     }
 
     public function modify()

@@ -25,11 +25,11 @@ class Articles extends CI_Controller {
     $data['articles'] = $this->Article_model->get_all_articles();
 
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/leftmenu', $data);
-    $this->load->view('articles/templates/contentheader', $data);
+    $this->load->view('partials/header', $data);
+    $this->load->view('partials/leftmenu', $data);
+    $this->load->view('articles/partials/contentheader', $data);
     $this->load->view('articles/index.php', $data);
-    $this->load->view('templates/footer', $data);
+    $this->load->view('partials/footer', $data);
   }
 
   public function build($id = null)
@@ -49,11 +49,11 @@ class Articles extends CI_Controller {
 
     $data['templates'] = $this->Template_model->get_all_templates();
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/leftmenu', $data);
-    $this->load->view('articles/templates/contentheader', $data);
+    $this->load->view('partials/header', $data);
+    $this->load->view('partials/leftmenu', $data);
+    $this->load->view('articles/partials/contentheader', $data);
     $this->load->view('articles/index.php', $data);
-    $this->load->view('templates/footer', $data);
+    $this->load->view('partials/footer', $data);
 
   }
 
@@ -81,11 +81,11 @@ class Articles extends CI_Controller {
       $data['articles'] = $this->Article_model->get_article_by_id($id);
       $data['templates'] = $this->Template_model->get_all_templates();
 
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/leftmenu', $data);
-      $this->load->view('articles/templates/contentheader', $data);
+      $this->load->view('partials/header', $data);
+      $this->load->view('partials/leftmenu', $data);
+      $this->load->view('articles/partials/contentheader', $data);
       $this->load->view('articles/index.php', $data);
-      $this->load->view('templates/footer', $data);
+      $this->load->view('partials/footer', $data);
 
     } else
     {
@@ -93,11 +93,11 @@ class Articles extends CI_Controller {
       $data['articles'] = $this->Article_model->get_all_articles();
       $data['action'] = 'Overview';
 
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/leftmenu', $data);
-      $this->load->view('articles/templates/contentheader', $data);
+      $this->load->view('partials/header', $data);
+      $this->load->view('partials/leftmenu', $data);
+      $this->load->view('articles/partials/contentheader', $data);
       $this->load->view('articles/index.php', $data);
-      $this->load->view('templates/footer', $data);
+      $this->load->view('partials/footer', $data);
     }
   }
 

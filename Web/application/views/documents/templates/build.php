@@ -113,9 +113,9 @@
                     <label class="control-label" for="selectError2">Type</label>
 
                     <div class="controls">
-                        <select id="selectError2" name="article_type">
-                          <?php foreach ($article_types as $type) : ?>
-                            <option value='<?php echo $type->id ?>'><?php echo $type->type ?></option>
+                        <select id="selectError2" name="article_template">
+                          <?php foreach ($templates as $template) : ?>
+                            <option value='<?php echo $template->id ?>'><?php echo $template->name ?></option>
                           <?php endforeach ?>
                         </select>
                     </div>

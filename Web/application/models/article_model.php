@@ -26,15 +26,6 @@
       return $data;
     }
 
-    public function get_all_templates()
-    {
-      $this->db->select('*');
-      $this->db->from('template');
-      $query = $this->db->get();
-      $data = $query->result();
-      return $data;
-    }
-
     public function get_article_by_id($id = null)
     {
       $this->db->select('a.id, a.name, a.data, t.name type, t.id type_id, t.isComposite');
@@ -95,16 +86,6 @@
         $this->db->delete('article');
 
       }
-    }
-
-    public function get_fields_for_article($article)
-    {
-      $this->db->select('f.name name, ft.id field_type_id, ft.name field_type_name');
-      $this->db->from('f');
-      $this->db->where('f.template_id',$article->template_id);
-      $this->db->join('field_type ft', 'ft.id = f.field_type_id');
-      $query = $this->db->get();
-      return $query->result();
     }
 
   }

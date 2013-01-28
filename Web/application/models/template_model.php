@@ -15,6 +15,36 @@ class Template_model extends CI_Model {
     $this->load->database();
   }
 
+  public function get_all_template()
+  {
+    $this->db->select('*');
+    $this->db->from('template');
+    $query = $this->db->get();
+    $data = $query->result();
+    $template = array();
+    foreach($data as $item){
+      $template = $item;
+    }
+
+    return $template;
+  }
+
+
+  public function get_template($id)
+  {
+    $this->db->select('*');
+    $this->db->from('template t');
+    $this->db->where('t.id', $id);
+    $query = $this->db->get();
+    $data = $query->result();
+    $template = array();
+    foreach($data as $item){
+      $template = $item;
+    }
+
+    return $template;
+  }
+
   public function get_all_fields()
   {
     $this->db->select('*');
@@ -43,6 +73,22 @@ class Template_model extends CI_Model {
       $this->db->from('fields f');
       $this->db->where('f.template_id',$id);
       $this->db->join('field_type ft', 'ft.id = f.field_type_id');
+      $this->db->order_by('f.order_nr', 'asc');
+      $query = $this->db->get();
+      $data = $query->result();
+
+      return $data;
+    }
+  }
+
+  public function get_child_templates($id)
+  {
+    if(isset($id))
+    {
+      
+      $this->db->select('*');
+      $this->db->from('templates t');
+      $this->db->where('t.template_id',$id);
       $this->db->order_by('f.order_nr', 'asc');
       $query = $this->db->get();
       $data = $query->result();
@@ -111,6 +157,27 @@ class Template_model extends CI_Model {
     }
     //maybe error if it gets here
     redirect('/documents');
+  }
+
+  public function get_all_children_fields($id)
+  {
+    $template = $this->get_template($id);
+    $fields = array();
+
+    if($template->isComposite == 0)
+    {
+      $child_templates = $this->get_child_templates($id);
+      foreach($child_templates as $item)
+      {
+        $fields = array_merge($fields, $this->get_all_children_fields($id));
+      }
+
+    }else
+    {
+      $fields = array_merge($fields, $this->get_fields_for_template($id));
+    }
+
+    return $fields;
   }
 
 }

@@ -14,6 +14,7 @@
       parent::__construct();
       $this->load->model('Document_model');
       $this->load->model('Article_model');
+      $this->load->model('Template_model');
     }
 
     public function index($action = null)
@@ -101,7 +102,7 @@
 
       //load all articles
       $data['articles'] = $this->Article_model->get_all_articles();
-      $data['article_types'] = $this->Article_model->get_all_article_types();
+      $data['templates'] = $this->Template_model->get_all_template();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/leftmenu', $data);

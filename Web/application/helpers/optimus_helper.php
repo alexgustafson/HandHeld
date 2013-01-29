@@ -47,19 +47,15 @@ function create_html_for_field($field, $data = null)
     $snippet = "";
     $value = "";
 
-    $snippet = '<div class="box row-fluid sortable">
-                <div class="box-header">
-                  <h2><i class="icon-align-justify"></i><span class="break"></span>'.$field->name.'</h2>
-                  <div class="box-icon">
-                    <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                    <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+    $snippet = '<div class="box">
+                  <div class="box-header">
+                    <h2><i class="icon-align-justify"></i><span class="break"></span>'.$field->name.'</h2>
+                    <div class="box-icon">
+                      <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+                      <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+                    </div>
                   </div>
-                </div>
-                <div class="box-content">
-
-
-                </div>
-              </div><!--/span-->';
+                <div class="box-content">';
 
 
 

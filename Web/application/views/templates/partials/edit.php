@@ -1,15 +1,14 @@
 
 
 
-<div class="row-fluid sortable">
+<div class="row-fluid">
   <div class="box span12">
     <div class="box-header" data-original-title>
       <h2><i class="icon-edit"></i><span class="break"></span>Edit Article Content</h2>
 
       <div class="box-icon">
-        <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-        <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-        <a href="#" class="btn-close"><i class="icon-remove"></i></a>
+        <a href="#" class="btn-setting"><i class="icon-plus"></i></a>
+
       </div>
     </div>
     <div class="box-content">
@@ -24,13 +23,15 @@
           </div>
         </div>
 
-        <div class="template_panels">
+
 
           <?php foreach($sections as $panel): ?>
-            <?php echo $panel ?>
+            <div class="row-fluid sortable">
+              <?php echo $panel ?>
+            </div>
           <?php endforeach ?>
 
-        </div>
+
         
         <div class="form-actions">
           <input type="hidden" name="document_id" value="<?php echo $template->id ?>">
@@ -45,3 +46,10 @@
   <!--/span-->
 
 </div>
+
+<script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+</script>

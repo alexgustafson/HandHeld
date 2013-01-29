@@ -57,7 +57,6 @@ function create_html_for_field($field, $data = null)
                   </div>
                 </div>';
 
-
-
     return $snippet;
+
   }

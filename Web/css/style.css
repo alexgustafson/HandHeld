@@ -241,6 +241,16 @@ h6 {
           	border-radius: 0px 0px 2px 2px;
 }
 
+.box-sortable {
+    margin-top: -1px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fcfcfc;
+    -webkit-border-radius: 0px 0px 2px 2px;
+    -moz-border-radius: 0px 0px 2px 2px;
+    border-radius: 0px 0px 2px 2px;
+}
+
 /* Header Section
 =================================================================== */
 

@@ -69,9 +69,25 @@ class Template_model extends CI_Model {
   {
     if(isset($id))
     {
-      $this->db->select('f.name name, ft.id field_type_id, ft.name field_type_name');
+      $this->db->select('f.id, f.name name, ft.id field_type_id, ft.name field_type_name, f.child_template_id');
       $this->db->from('fields f');
       $this->db->where('f.template_id',$id);
+      $this->db->join('field_type ft', 'ft.id = f.field_type_id', 'left outer');
+      $this->db->order_by('f.order_nr', 'asc');
+      $query = $this->db->get();
+      $data = $query->result();
+
+      return $data;
+    }
+  }
+
+  public function get_field_by_id($id)
+  {
+    if(isset($id))
+    {
+      $this->db->select('f.id, f.name name, ft.id field_type_id, ft.name field_type_name, f.child_template_id');
+      $this->db->from('fields f');
+      $this->db->where('f.id',$id);
       $this->db->join('field_type ft', 'ft.id = f.field_type_id');
       $this->db->order_by('f.order_nr', 'asc');
       $query = $this->db->get();
@@ -85,7 +101,7 @@ class Template_model extends CI_Model {
   {
     if(isset($id))
     {
-      
+
       $this->db->select('*');
       $this->db->from('templates t');
       $this->db->where('t.template_id',$id);
@@ -166,10 +182,26 @@ class Template_model extends CI_Model {
 
     if($template->isComposite == 1)
     {
-      $child_templates = $this->get_child_templates($id);
-      foreach($child_templates as $item)
+      $children = $this->get_fields_for_template($id);
+      foreach($children as $child)
       {
-        $fields = array_merge($fields, $this->get_all_children_fields($id));
+        if($child->child_template_id > 0 && $child->field_type_id == 0)
+        {
+          //child is a subtemplate
+          $subtemplate =new stdClass();
+          $subtemplate->name = $child->name;
+          $subtemplate->field_type_name = 'subtemplate';
+          $subtemplate->children = $this->get_all_children_fields($child->child_template_id) ;
+
+          array_push($fields, $subtemplate );
+
+
+        }else
+        {
+          //child is a normal field
+          $fields = array_merge($fields, $this->get_field_by_id($child->id));
+        }
+
       }
 
     }else

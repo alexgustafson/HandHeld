@@ -38,7 +38,7 @@ class Templates extends CI_Controller {
 
     if ($id == 'cancel')
     {
-      redirect(base_url() . 'articles/');
+      redirect(base_url() . 'templates/');
     }
 
     if($id != null && $id != 'new')
@@ -73,8 +73,8 @@ class Templates extends CI_Controller {
 
       $this->load->view('partials/header', $data);
       $this->load->view('partials/leftmenu', $data);
-      $this->load->view('articles/partials/contentheader', $data);
-      $this->load->view('articles/index.php', $data);
+      $this->load->view('templates/partials/contentheader', $data);
+      $this->load->view('templates/index.php', $data);
       $this->load->view('partials/footer', $data);
     }
   }

@@ -55,7 +55,7 @@ function create_html_for_field($field, $data = null)
                       <a href="#" class="btn-close"><i class="icon-remove"></i></a>
                     </div>
                   </div>
-                <div class="box-content">';
+                </div>';
 
 
 

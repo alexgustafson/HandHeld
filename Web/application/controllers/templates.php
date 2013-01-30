@@ -34,6 +34,8 @@ class Templates extends CI_Controller {
 
   public function edit($id)
   {
+    $data['fields'] = $this->Template_model->get_all_field_types();
+    $data['templates'] = $this->Template_model->get_all_templates();
     $this->load->helper('Optimus');
 
     if ($id == 'cancel')
@@ -46,6 +48,7 @@ class Templates extends CI_Controller {
       $template = $this->Template_model->get_template($id);
       $data['template'] = $template;
       $sections = $this->Template_model->get_all_children_fields($id);
+
       $partials = array();
       foreach($sections as $section ){
         array_push($partials, create_partial($section ));

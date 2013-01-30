@@ -7,7 +7,7 @@
       <h2><i class="icon-edit"></i><span class="break"></span>Edit Template</h2>
 
       <div class="box-icon">
-        <a href="#" class="btn-setting"><i class="icon-plus"></i></a>
+        <a href="#" class="btn-add-template"><i class="icon-plus"></i></a>
 
       </div>
     </div>
@@ -52,3 +52,32 @@
 
 </div>
 
+<div class="modal hide fade" id="myModalAddTemplate">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Add Field or Subtemplate</h3>
+  </div>
+  <div class="modal-body">
+
+    <div class="control-group">
+      <label class="control-label" for="selectError3">Plain Select</label>
+      <div class="controls">
+        <select id="selectError3">
+
+          <?php foreach ($fields as $field): ?>
+            <option><?php echo $field->name ?></option>
+          <?php endforeach ?>
+          <?php foreach ($templates as $template): ?>
+            <option><?php echo $template->name ?></option>
+          <?php endforeach ?>
+
+        </select>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary">Add Field</a>
+  </div>
+</div>

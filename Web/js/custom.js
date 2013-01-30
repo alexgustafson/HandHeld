@@ -291,6 +291,10 @@ function template_functions(){
         e.preventDefault();
         $('#myModalAdd').modal('show');
     });
+    $('.btn-add-template').click(function(e){
+        e.preventDefault();
+        $('#myModalAddTemplate').modal('show');
+    });
 
 
     /* ---------- Progress  ---------- */

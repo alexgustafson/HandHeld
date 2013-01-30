@@ -191,6 +191,7 @@ class Template_model extends CI_Model {
           $subtemplate =new stdClass();
           $subtemplate->name = $child->name;
           $subtemplate->field_type_name = 'subtemplate';
+          $subtemplate->id = $child->child_template_id;
           $subtemplate->children = $this->get_all_children_fields($child->child_template_id) ;
 
           array_push($fields, $subtemplate );

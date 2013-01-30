@@ -51,16 +51,9 @@ class Templates extends CI_Controller {
 
       $partials = array();
       foreach($sections as $section ){
-        if(isset($section->children))
-        {
-          foreach($section->children as $child)
-          {
-            array_push($partials, create_partial($child ));
-          }
-        }else
-        {
+
           array_push($partials, create_partial($section ));
-        }
+
 
       }
       $data['sections'] = $partials;

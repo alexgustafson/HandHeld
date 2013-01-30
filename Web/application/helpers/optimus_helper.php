@@ -54,7 +54,7 @@ function create_html_for_field($field, $data = null)
                   <div class="box-header">
                     <h2><i class="icon-align-justify"></i><span class="break"></span>'.$field->name.'</h2>
                     <div class="box-icon">
-                      <input type="hidden" name="field_type_id[]" value="'. $field->id .'">
+                      <input type="hidden" name="fields[]" value="'. $field->id .'">
                       <a href="#" class="btn-close"><i class="icon-remove"></i></a>
                     </div>
                   </div>
@@ -83,7 +83,7 @@ function create_html_for_field($field, $data = null)
                   <div class="box-header">
                     <h2><i class="icon-align-justify"></i><span class="break"></span>'.$field->name.'</h2>
                     <div class="box-icon">
-                      <input type="hidden" name="field_type_id[]" value="'. $field->id .'">
+                      <input type="hidden" name="fields[]" value="'. $field->id .'">
                       <a href="#" class="btn-close"><i class="icon-remove"></i></a>
                     </div>
                   </div>

@@ -191,7 +191,7 @@ class Template_model extends CI_Model {
           $subtemplate =new stdClass();
           $subtemplate->name = $child->name;
           $subtemplate->field_type_name = 'subtemplate';
-          $subtemplate->id = $child->child_template_id;
+          $subtemplate->id = $child->id;
           $subtemplate->children = $this->get_all_children_fields($child->child_template_id) ;
 
           array_push($fields, $subtemplate );
@@ -248,6 +248,21 @@ class Template_model extends CI_Model {
 
 
     return count($result);
+  }
+
+  public function reorder_children()
+  {
+    $children = $this->input->post('fields');
+    $i = 0;
+    foreach ($children as $child)
+    {
+      $data = array('order_nr' => $i);
+      $this->db->where('id', $child);
+      $this->db->update('fields', $data);
+
+      $i++;
+    }
+
   }
 
 }

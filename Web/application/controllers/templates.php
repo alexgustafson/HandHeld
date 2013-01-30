@@ -32,7 +32,7 @@ class Templates extends CI_Controller {
     $this->load->view('partials/footer', $data);
   }
 
-  public function edit($id)
+  public function edit($id = null)
   {
     $data['fields'] = $this->Template_model->get_all_field_types();
     $data['templates'] = $this->Template_model->get_all_templates();
@@ -54,7 +54,6 @@ class Templates extends CI_Controller {
 
           array_push($partials, create_partial($section ));
 
-
       }
       $data['sections'] = $partials;
 
@@ -62,6 +61,8 @@ class Templates extends CI_Controller {
 
     if (!$_POST)
     {
+
+
       //no post data so get document to edit and serve the 'Edit' partial
       $data['action'] = 'Edit';
 
@@ -73,6 +74,8 @@ class Templates extends CI_Controller {
 
     } else
     {
+
+      $this->Template_model->reorder_children();
       //post data is available, so save it. Then serve the 'Overview' template
       $data['articles'] = $this->Article_model->get_all_articles();
       $data['action'] = 'Overview';

@@ -212,4 +212,41 @@ class Template_model extends CI_Model {
     return $fields;
   }
 
+  public function addFieldToTemplate($name, $template_id, $field_type_id)
+  {
+    $order_nr = $this->countFieldAndTemplates($template_id);
+    $data = array('name' => $name,
+                  'template_id' => $template_id,
+                  'field_type_id' => $field_type_id,
+                  'order_nr' => $order_nr);
+
+    $this->db->insert('fields', $data);
+    $id = $this->db->insert_id();
+  }
+
+
+  public function addSubtemplateToTemplate($name, $parent_template, $child_template_id)
+  {
+    $order_nr = $this->countFieldAndTemplates($parent_template);
+    $data = array('name' => $name,
+                  'template_id' => $parent_template,
+                  'child_template_id' => $child_template_id,
+                  'order_nr' => $order_nr);
+
+    $this->db->insert('fields', $data);
+    $id = $this->db->insert_id();
+  }
+
+
+  public function countFieldAndTemplates($template_id)
+  {
+    $this->db->select('*');
+    $this->db->from('fields f');
+    $this->db->where('f.template_id', $template_id);
+    $result = $this->db->get()->result();
+
+
+    return count($result);
+  }
+
 }

@@ -51,7 +51,17 @@ class Templates extends CI_Controller {
 
       $partials = array();
       foreach($sections as $section ){
-        array_push($partials, create_partial($section ));
+        if(isset($section->children))
+        {
+          foreach($section->children as $child)
+          {
+            array_push($partials, create_partial($child ));
+          }
+        }else
+        {
+          array_push($partials, create_partial($section ));
+        }
+
       }
       $data['sections'] = $partials;
 
@@ -82,7 +92,25 @@ class Templates extends CI_Controller {
     }
   }
 
+  public function addField()
+  {
+    $field_info =$this->input->post('field_id');
+    $field_info = explode("|", $field_info);
+    $template_id  =$this->input->post('template_id');
+    $name = $this->input->post('name');
 
+    if($field_info[0] == 'field')
+    {
+      $this->Template_model->addFieldToTemplate($name,$template_id, $field_info[1]);
+
+    }elseif($field_info[0] == 'template')
+    {
+      $this->Template_model->addSubTemplateToTemplate($name,$template_id, $field_info[1]);
+    }
+
+    redirect(base_url() . 'templates/edit/' . $template_id);
+
+  }
 
 
 }

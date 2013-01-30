@@ -47,7 +47,8 @@ function create_html_for_field($field, $data = null)
     $snippet = "";
     $value = "";
 
-    $snippet = '<div class="box">
+
+      $snippet = '<div class="box">
                   <div class="box-header">
                     <h2><i class="icon-align-justify"></i><span class="break"></span>'.$field->name.'</h2>
                     <div class="box-icon">
@@ -56,6 +57,9 @@ function create_html_for_field($field, $data = null)
                     </div>
                   </div>
                 </div>';
+
+
+
 
     return $snippet;
 

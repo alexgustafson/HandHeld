@@ -265,4 +265,12 @@ class Template_model extends CI_Model {
 
   }
 
+  public function update($template_id)
+  {
+
+
+  }
+
+
+
 }

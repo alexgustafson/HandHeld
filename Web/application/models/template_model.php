@@ -254,20 +254,48 @@ class Template_model extends CI_Model {
   {
     $children = $this->input->post('fields');
     $i = 0;
-    foreach ($children as $child)
-    {
-      $data = array('order_nr' => $i);
-      $this->db->where('id', $child);
-      $this->db->update('fields', $data);
+    if($children != false){
+      foreach ($children as $child)
+      {
+        $data = array('order_nr' => $i);
+        $this->db->where('id', $child);
+        $this->db->update('fields', $data);
 
-      $i++;
+        $i++;
+      }
     }
-
   }
 
   public function update($template_id)
   {
+    $new_children = $this->input->post('fields');
+    $old_children = $this->get_all_children_fields($template_id);
 
+    if($new_children == false)
+    {
+      $this->db->where('template_id', $template_id);
+      $this->db->delete('fields');
+      return;
+    }
+
+    foreach ($old_children as $old_child)
+    {
+      $deleted = true;
+      foreach ($new_children as $new_child_id)
+      {
+        if($old_child->id == $new_child_id)
+        {
+          $deleted = false;
+        }
+      }
+
+      if($deleted)
+      {
+        $this->db->where('id', $old_child->id);
+        $this->db->delete('fields');
+      }
+
+    }
 
   }
 

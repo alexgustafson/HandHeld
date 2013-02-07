@@ -62,7 +62,6 @@ class Templates extends CI_Controller {
     if (!$_POST)
     {
 
-
       //no post data so get document to edit and serve the 'Edit' partial
       $data['action'] = 'Edit';
 
@@ -74,17 +73,12 @@ class Templates extends CI_Controller {
 
     } else
     {
+      $template_id  =$this->input->post('template_id');
 
+      $this->Template_model->update($template_id);
       $this->Template_model->reorder_children();
-      //post data is available, so save it. Then serve the 'Overview' template
-      $data['articles'] = $this->Article_model->get_all_articles();
-      $data['action'] = 'Overview';
 
-      $this->load->view('partials/header', $data);
-      $this->load->view('partials/leftmenu', $data);
-      $this->load->view('templates/partials/contentheader', $data);
-      $this->load->view('templates/index.php', $data);
-      $this->load->view('partials/footer', $data);
+      redirect(base_url() . 'templates/edit/' . $template_id);
     }
   }
 

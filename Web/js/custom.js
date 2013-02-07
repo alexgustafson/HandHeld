@@ -276,6 +276,10 @@ function template_functions(){
 		e.preventDefault();
 		$(this).parent().parent().parent().fadeOut();
 	});
+    $('.btn-remove').click(function(e){
+        e.preventDefault();
+        $(this).parent().parent().parent().remove();
+    });
 	$('.btn-minimize').click(function(e){
 		e.preventDefault();
 		var $target = $(this).parent().parent().next('.box-content');

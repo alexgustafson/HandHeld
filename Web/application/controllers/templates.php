@@ -102,6 +102,23 @@ class Templates extends CI_Controller {
 
   }
 
+  public function delete($template_id)
+  {
+    $this->Template_model->delete($template_id);
+    redirect(base_url() . 'templates');
+
+  }
+
+  public function newTemplate()
+  {
+    $data = array('name' => 'untitled','isComposite' => 0);
+    $this->db->insert('template', $data);
+    $id = $this->db->insert_id();
+
+    $this->edit($id);
+
+  }
+
 
 
 

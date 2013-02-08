@@ -268,6 +268,12 @@ class Template_model extends CI_Model {
 
   public function update($template_id)
   {
+    $template_name = $this->input->post('template_name');
+
+    $data = array('name' => $template_name);
+    $this->db->where('id', $template_id);
+    $this->db->update('template', $data);
+
     $new_children = $this->input->post('fields');
     $old_children = $this->get_all_children_fields($template_id);
 
@@ -277,6 +283,7 @@ class Template_model extends CI_Model {
       $this->db->delete('fields');
       return;
     }
+
 
     foreach ($old_children as $old_child)
     {
@@ -297,6 +304,18 @@ class Template_model extends CI_Model {
 
     }
 
+  }
+
+  public function delete($template_id)
+  {
+    $this->db->where('template_id', $template_id);
+    $this->db->delete('fields');
+
+    $this->db->where('child_template_id', $template_id);
+    $this->db->delete('fields');
+
+    $this->db->where('id', $template_id);
+    $this->db->delete('template');
   }
 
 

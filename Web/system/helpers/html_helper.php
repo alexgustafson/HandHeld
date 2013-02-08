@@ -355,7 +355,7 @@ if ( ! function_exists('link_tag'))
 
 			if ($media	!= '')
 			{
-				$link .= 'media="'.$media.'" ';
+				$link .= 'assets="'.$media.'" ';
 			}
 
 			if ($title	!= '')

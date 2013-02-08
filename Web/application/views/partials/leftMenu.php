@@ -10,7 +10,7 @@
                     <li><a href="<?php echo base_url() ; ?>documents/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Documents</span></a></li>
                     <li><a href="<?php echo base_url() ; ?>articles/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Articles</span></a></li>
                     <li><a href="<?php echo base_url() ; ?>templates/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Templates</span></a></li>
-                  <li><a href="<?php echo base_url() ; ?>media/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Media</span></a></li>
+                  <li><a href="<?php echo base_url() ; ?>assets/"><i class="icon-briefcase"></i><span class="hidden-tablet"> Assets</span></a></li>
                 </ul>
             </div><!--/.well -->
         </div><!--/span-->

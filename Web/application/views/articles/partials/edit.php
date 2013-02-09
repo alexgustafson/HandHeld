@@ -48,7 +48,7 @@
 <?php endforeach ?>
 <?php endif ?>
 
-<div class="modal hide fade" id="myModalSelectFile">
+<div class="modal-image-selector hide fade" id="myModalSelectFile">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
     <h3>Select File</h3>
@@ -58,16 +58,18 @@
   <fieldset>
     <div class="modal-body">
 
-      <div class="control-group">
+      <div class="box-content">
+        <!-- <div class="masonry-gallery"> -->
+          <!-- <div id="image-1" class="masonry-thumb"> -->
 
         <?php foreach($images as $image): ?>
 
-
-              <a style="background:url(<?php echo '/uploads/' . $image->filename ?>)" title="Sample Image 1" href="<?php echo '/uploads/' . $image->filename ?>"><img class="grayscale" src="<?php echo '/uploads/' . $image->filename ?>" alt="Sample Image 1"></a>
-
-
+              <a style="background:url(<?php echo '/uploads/' . $image->filename ?>);max-width: 300px" title="<?php echo $image->filename ?>"><img class="image-select" src="<?php echo '/uploads/' . $image->filename ?>" alt="<?php echo $image->filename ?>"></a>
 
         <?php endforeach ?>
+
+          <!-- </div> -->
+        <!-- </div> -->
 
       </div>
 

@@ -166,7 +166,8 @@ function live_notifications_center(){
 	
 } 
 
-/* ---------- Template Functions ---------- */		
+/* ---------- Template Functions ---------- */
+var elf_selected_url;
 		
 function template_functions(){
 	
@@ -227,10 +228,13 @@ function template_functions(){
 	/* ---------- Popover ---------- */
 	$('[rel="popover"],[data-rel="popover"]').popover();
 
+
 	/* ---------- File Manager ---------- */
 	var elf = $('.file-manager').elfinder({
-		url : 'elfinder_ini'  // connector URL (REQUIRED)
+		url : 'http://handheld.localhost/assets/elfinder_ini',  // connector URL (REQUIRED)
 	}).elfinder('instance');
+
+
 
 	/* ---------- Star Rating ---------- */
 	$('.raty').raty({
@@ -299,6 +303,11 @@ function template_functions(){
         e.preventDefault();
         $('#myModalAddTemplate').modal('show');
     });
+    $('.btn-select-file').click(function(e){
+        e.preventDefault();
+        $('#myModalSelectFile').modal('show');
+    });
+
 
 
     /* ---------- Progress  ---------- */

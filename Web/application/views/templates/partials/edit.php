@@ -76,9 +76,9 @@
               <?php foreach ($fields as $field): ?>
                 <option value="field|<?php echo $field->id ?>"><?php echo $field->name ?></option>
               <?php endforeach ?>
-              <!-- <?php foreach ($templates as $subtemplate): ?>
+              <?php foreach ($templates as $subtemplate): ?>
                 <option value="template|<?php echo $subtemplate->id ?>"><?php echo $subtemplate->name ?></option>
-              <?php endforeach ?> -->
+              <?php endforeach ?>
 
             </select>
           </div>

@@ -18,11 +18,6 @@
                   </li>
               </ul>
           </div>
-          <div class="sortable row-fluid">
 
-            <a  href="/articles/edit/new"><button class="btn btn-large">Create New Article</button></a>
-
-
-          </div>
 
           <hr>

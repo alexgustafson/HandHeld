@@ -14,6 +14,7 @@ class Articles extends CI_Controller {
     parent::__construct();
     $this->load->model('Article_model');
     $this->load->model('Template_model');
+    $this->load->model('Assets_model');
 
   }
 
@@ -63,6 +64,8 @@ class Articles extends CI_Controller {
     {
       redirect(base_url() . 'articles/');
     }
+
+    $data['images'] = $this->Assets_model->get_all_images();
 
     if($id != null && $id != 'new')
     {
@@ -125,5 +128,7 @@ class Articles extends CI_Controller {
 
     return $template_fields;
   }
+
+
 
 }

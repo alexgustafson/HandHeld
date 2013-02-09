@@ -12,7 +12,7 @@ class Assets extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    //$this->elfinder_init();
+
     $this->load->model('Document_model');
     $this->load->model('Article_model');
     $this->load->model('Template_model');

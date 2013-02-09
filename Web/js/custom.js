@@ -229,7 +229,7 @@ function template_functions(){
 
 	/* ---------- File Manager ---------- */
 	var elf = $('.file-manager').elfinder({
-		url : 'misc/elfinder-connector/connector.php'  // connector URL (REQUIRED)
+		url : 'elfinder_ini'  // connector URL (REQUIRED)
 	}).elfinder('instance');
 
 	/* ---------- Star Rating ---------- */

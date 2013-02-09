@@ -43,20 +43,11 @@ class Assets extends CI_Controller{
    **/
   public function fileManagerLog($cmd, $result, $args, $elfinder)
   {
-    $log = $cmd.' ['.date('d.m H:s')."]\n";
-
-    if (!empty($result['error'])) {
-      $log .= "\tERROR: ".implode(' ', $result['error'])."\n";
-    }
-
-    if (!empty($result['warning'])) {
-      $log .= "\tWARNING: ".implode(' ', $result['warning'])."\n";
-    }
 
     if (!empty($result['removed'])) {
       foreach ($result['removed'] as $file) {
         // removed file contain additional field "realpath"
-        $log .= "\tREMOVED: ".$file['realpath']."\n";
+
         $this->db->where('realpath',$file['realpath']);
         $this->db->delete('files');
       }
@@ -64,15 +55,19 @@ class Assets extends CI_Controller{
 
     if (!empty($result['added'])) {
       foreach ($result['added'] as $file) {
-        $log .= "\tADDED: ".$elfinder->realpath($file['hash'])."\n";
-        $data = array('realpath' => $elfinder->realpath($file['hash']));
+
+        $data = array('realpath' => $elfinder->realpath($file['hash']),
+                      'hash' => $file['hash'],
+                      'filename' => $file['name'],
+                      'mime' => $file['mime']
+                      );
         $this->db->insert('files', $data);
       }
     }
 
     if (!empty($result['changed'])) {
       foreach ($result['changed'] as $file) {
-        $log .= "\tCHANGED: ".$elfinder->realpath($file['hash'])."\n";
+
       }
     }
 

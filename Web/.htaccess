@@ -9,7 +9,7 @@ ErrorDocument 404 /application/errors/error_404.php
 RewriteEngine On
 
 
-RewriteCond $1 !^(index\.php|css|js|media|pdfs|misc|img|lib|robots\.txt)
+RewriteCond $1 !^(index\.php|css|js|media|uploads|pdfs|misc|img|lib|robots\.txt)
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]

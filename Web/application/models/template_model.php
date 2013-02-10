@@ -75,9 +75,17 @@ class Template_model extends CI_Model {
       $this->db->join('field_type ft', 'ft.id = f.field_type_id', 'left outer');
       $this->db->order_by('f.order_nr', 'asc');
       $query = $this->db->get();
-      $data = $query->result();
+      $fields = $query->result();
 
-      return $data;
+      foreach($fields as &$field)
+      {
+        if($field->child_template_id > 0)
+        {
+          $field->children = $this->get_fields_for_template($field->child_template_id);
+        }
+      }
+
+      return $fields;
     }
   }
 

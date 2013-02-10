@@ -74,7 +74,7 @@ class Articles extends CI_Controller {
       $article = $this->Article_model->get_article_by_id($id);
       $article = $article[0];
 
-      $data['template_panels'] = $this->create_panel_for_template($article->template_id);
+      $data['template_panels'] = $this->create_panel_for_template($article->template_id, $article->data);
     }
 
     if (!$_POST)
@@ -104,6 +104,24 @@ class Articles extends CI_Controller {
     }
   }
 
+  public function update()
+  {
+    if ($_POST)
+    {
+      $this->Article_model->set_article();
+
+      //post data is available, so save it. Then serve the 'Overview' template
+      $data['articles'] = $this->Article_model->get_all_articles();
+      $data['action'] = 'Overview';
+
+      $this->load->view('partials/header', $data);
+      $this->load->view('partials/leftmenu', $data);
+      $this->load->view('articles/partials/contentheader', $data);
+      $this->load->view('articles/index.php', $data);
+      $this->load->view('partials/footer', $data);
+    }
+  }
+
   public function create_panel_for_template_ajax($template_id)
   {
     $this->load->model('Template_model');
@@ -118,11 +136,21 @@ class Articles extends CI_Controller {
     $this->load->model('Template_model');
     $fields = $this->Template_model->get_fields_for_template($template_id);
 
+    if($data)
+    {
+      $data = json_decode($data);
+    }
+
     $template_fields = array();
     $i = 0;
     foreach($fields as $field)
     {
-      $template_fields[$i] = create_html_for_field($field, $data);
+      if(isset($data[$i])){
+        $template_fields[$i] = create_html_for_field($field, $data[$i]);
+      }else{
+        $template_fields[$i] = create_html_for_field($field);
+      }
+
       $i++;
     }
 

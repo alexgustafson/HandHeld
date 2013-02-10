@@ -13,6 +13,7 @@
     {
       parent::__construct();
       $this->load->database();
+      $this->load->model('Template_model');
     }
 
     public function get_all_articles()
@@ -39,21 +40,17 @@
     public function set_article()
     {
 
-      $id = $this->input->post('template_id');
+      $id = $this->input->post('article_id');
       $name = $this->input->post('article_name');
-      $type = $this->input->post('article_type');
-      $data = $this->input->post('article_data');
-      $parent_id = $this->input->post('article_parent_id');
-
+      $article_data = $this->encode_article_data($id, $this->input->post('data'));
+      $template_id = $this->input->post('template_id');
 
       if($id) //update
       {
 
         $data = array('name' => $name,
-                      'template_id'=> $type,
-                      'data'=> $data,
-                      'update_date' => date('c'),
-                      'parent_id' => $parent_id);
+                      'data'=> $article_data,
+                      'update_date' => date('c'));
         $this->db->where('article.id', $id);
         $this->db->update('article', $data);
 
@@ -62,10 +59,8 @@
       }else //insert
       {
         $data = array('name' => $name,
-                      'template_id'=> $type,
-                      'data'=> $data,
-                      'create_date' => date('c'),
-                      'parent_id' => $parent_id);
+                      'template_id'=> $template_id,
+                      'create_date' => date('c'));
         $this->db->insert('article', $data);
 
         $id = $this->db->insert_id();
@@ -87,5 +82,24 @@
 
       }
     }
+
+    public function encode_article_data($article_id, $data)
+    {
+      $article = $this->get_article_by_id($article_id);
+      $article = $article[0];
+
+      $fields = $this->Template_model->get_all_children_fields($article->template_id);
+
+      foreach($fields as &$field)
+      {
+        $field->value = $data[$field->id];
+      }
+
+      $data = json_encode($fields);
+
+      return $data;
+    }
+
+
 
   }

@@ -14,7 +14,6 @@
         <tr>
           <th>Name</th>
           <th>Type</th>
-          <th>Data</th>
           <th>Actions</th>
         </tr>
         </thead>
@@ -23,7 +22,6 @@
           <tr>
             <td><?php echo $article->name ?></td>
             <td class="center"><?php echo $article->template_name ?></td>
-            <td class="center"><?php echo $article->data ?></td>
 
             <td class="center">
 

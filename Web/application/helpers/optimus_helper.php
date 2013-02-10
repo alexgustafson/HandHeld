@@ -151,6 +151,17 @@
 							    </div>';
 
         break;
+
+      case "html_text":
+
+        $snippet = '<div class="control-group">
+							      <label class="control-label">' . $field->name . '</label>
+							      <div class="controls">
+								        <textarea class="cleditor" id="textarea2" name="'.$name.'" rows="6">'. $value .'</textarea>
+							      </div>
+							      </div>';
+
+        break;
     }
 
 

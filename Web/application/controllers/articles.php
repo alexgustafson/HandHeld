@@ -90,18 +90,22 @@ class Articles extends CI_Controller {
       $this->load->view('articles/index.php', $data);
       $this->load->view('partials/footer', $data);
 
-    } else
-    {
+    }
+  }
+
+  public function create()
+  {
+
       //post data is available, so save it. Then serve the 'Overview' template
-      $data['articles'] = $this->Article_model->get_all_articles();
-      $data['action'] = 'Overview';
+      $data['action'] = 'New';
+      $data['templates'] = $this->Template_model->get_all_templates();
 
       $this->load->view('partials/header', $data);
       $this->load->view('partials/leftmenu', $data);
       $this->load->view('articles/partials/contentheader', $data);
       $this->load->view('articles/index.php', $data);
       $this->load->view('partials/footer', $data);
-    }
+
   }
 
   public function update()

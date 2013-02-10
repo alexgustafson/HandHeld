@@ -32,12 +32,55 @@ class Assets extends CI_Controller{
     $this->load->view('partials/footer', $data);
   }
 
-
-  function elfinder_init()
+  /**
+   * This callback function is called by elfinder whenever files are manipulated
+   *
+   * @param  string   $cmd       command name
+   * @param  array    $result    command result
+   * @param  array    $args      command arguments from client
+   * @param  object   $elfinder  elFinder instance
+   * @return void|true
+   **/
+  public function fileManagerLog($cmd, $result, $args, $elfinder)
   {
+
+    if (!empty($result['removed'])) {
+      foreach ($result['removed'] as $file) {
+        // removed file contain additional field "realpath"
+
+        $this->db->where('realpath',$file['realpath']);
+        $this->db->delete('files');
+      }
+    }
+
+    if (!empty($result['added'])) {
+      foreach ($result['added'] as $file) {
+
+        $data = array('realpath' => $elfinder->realpath($file['hash']),
+                      'hash' => $file['hash'],
+                      'filename' => $file['name'],
+                      'mime' => $file['mime']
+                      );
+        $this->db->insert('files', $data);
+      }
+    }
+
+    if (!empty($result['changed'])) {
+      foreach ($result['changed'] as $file) {
+
+      }
+    }
+
+  }
+
+
+  function elfinder_ini()
+  {
+
     $this->load->helper('path');
     $opts = array(
       // 'debug' => true,
+      'accessControl' => 'access',
       'roots' => array(
         array(
           'driver' => 'LocalFileSystem',
@@ -45,7 +88,11 @@ class Assets extends CI_Controller{
           'URL'    => site_url('uploads') . '/'
           // more elFinder options here
         )
+      ),
+      'bind' => array(
+        'mkdir mkfile rename duplicate upload rm paste' => array($this, 'fileManagerLog')
       )
+
     );
     $this->load->library('elfinder_lib', $opts);
   }

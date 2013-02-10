@@ -70,6 +70,16 @@
 							    </div>';
 
         break;
+      case "url":
+
+        $snippet = '<div class="control-group">
+							      <label class="control-label">' . $field->name . '</label>
+							      <div class="controls">
+								      <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
+							      </div>
+							    </div>';
+
+        break;
       case "resource_path":
 
         $snippet = '<div class="control-group">
@@ -82,9 +92,6 @@
 								      </div>
 							      </div>
 							    </div>';
-
-        break;
-      case "html_text":
 
         break;
 

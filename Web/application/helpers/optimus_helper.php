@@ -34,7 +34,7 @@ function create_html_for_field($field, $data = null)
 							      <label class="control-label">'. $field->name .'</label>
 							      <div class="controls">
 							        <input type="text" class="span6" value="'. $value.'" name="data['. $field->name .']">
-								      <button class="btn btn-mini btn-select-file">Mini button</button>
+								      <button class="btn btn-mini btn-select-file">Select Image</button>
 							      </div>
 							    </div>';
 
@@ -59,7 +59,7 @@ function create_html_for_field($field, $data = null)
       $snippet = '<div class="control-group">
 							      <label class="control-label">'. $field->name .'</label>
 							      <div class="controls">
-								      <button class="btn btn-mini">Mini button</button>
+								      <button class="btn btn-mini">Select Image</button>
 							      </div>
 							    </div>';
 

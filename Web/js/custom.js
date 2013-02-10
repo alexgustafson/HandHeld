@@ -1,4 +1,17 @@
+var selected_image_url;
+var $selected_field;
+
 $(document).ready(function(){
+
+    $(".image-select").click(function(){
+        //alert(this.getAttribute('src'));
+        selected_image_url = this.getAttribute('src');
+        $('#myModalSelectFile').modal('hide');
+        //$parent = $selected_field.parent();
+        $sibling = $selected_field.prev();
+        $sibling.val(selected_image_url);
+
+    });
 	
 	$("#username").focus(function() {
 		
@@ -306,6 +319,7 @@ function template_functions(){
     $('.btn-select-file').click(function(e){
         e.preventDefault();
         $('#myModalSelectFile').modal('show');
+        $selected_field = $(this);
     });
 
 

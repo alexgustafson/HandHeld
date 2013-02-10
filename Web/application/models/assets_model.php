@@ -29,7 +29,8 @@
     {
       $this->db->select('*');
       $this->db->from('files f');
-      $this->db->where('mime', 'image/jpeg');
+      $this->db->where('mime', 'image/png');
+      $this->db->or_where('mime', 'image/jpeg');
       $query = $this->db->get();
       $data = $query->result();
 

@@ -9,6 +9,7 @@
 
   function create_html_for_field($field, $data = null)
   {
+
     $snippet = "";
     $value = "";
 
@@ -55,6 +56,7 @@
 
   function create_snippet($name, $field, $value)
   {
+    $CI =& get_instance();
     $snippet = '';
     switch ($field->field_type_name)
     {
@@ -75,6 +77,9 @@
 							      <div class="controls">
 							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
+								      <div>
+								      <img src="' . $value . '" alt="' . $field->name . '">
+								      </div>
 							      </div>
 							    </div>';
 
@@ -106,6 +111,34 @@
 
         break;
 
+      case "link_to_article":
+
+        $snippet = '<div class="control-group">
+							      <label class="control-label">' . $field->name . '</label>
+							      <div class="controls">';
+
+        $snippet = $snippet . '<select id="selectError3" name="'.$name.'">';
+
+        $CI->load->model('Article_model');
+        $articles = $CI->Article_model->get_all_articles();
+        foreach($articles as $article){
+
+
+          if($article->id == $value)
+          {
+            $snippet = $snippet . '<option value="' . $article->id . '" selected>' . $article->name . '  |  ' . $article->id . '</option>';
+          }else
+          {
+            $snippet = $snippet . '<option value="' . $article->id . '">' . $article->name . '  |  ' . $article->id . '</option>';
+          }
+        }
+
+        $snippet = $snippet . '</select>';
+        $snippet = $snippet . '</div>
+							    </div>';
+
+        break;
+
       case "image":
 
         $snippet = '<div class="control-group">
@@ -113,6 +146,7 @@
 							      <div class="controls">
 							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
+								      <img src="' . $value . '" alt="' . $field->name . '">
 							      </div>
 							    </div>';
 

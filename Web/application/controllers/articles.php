@@ -122,6 +122,13 @@ class Articles extends CI_Controller {
     }
   }
 
+  public function delete($article_id)
+  {
+    $data['articles'] = $this->Article_model->delete_article($article_id);
+    redirect('/articles/index');
+
+  }
+
   public function create_panel_for_template_ajax($template_id)
   {
     $this->load->model('Template_model');

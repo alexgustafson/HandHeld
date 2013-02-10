@@ -12,6 +12,8 @@ $(document).ready(function(){
         $sibling.val(selected_image_url);
 
     });
+
+
 	
 	$("#username").focus(function() {
 		
@@ -320,6 +322,15 @@ function template_functions(){
         e.preventDefault();
         $('#myModalSelectFile').modal('show');
         $selected_field = $(this);
+    });
+    $('.btn-choose-color').click(function(e){
+        var $element = $(this).prev('.color');
+        $element.attr("id","color");
+        var $colorpicker = $(this).next('.colorpicker');
+        $($colorpicker).farbtastic($element);
+        $colorpicker.toggle('hide');
+
+        e.preventDefault();
     });
 
 

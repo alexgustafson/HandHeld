@@ -18,6 +18,7 @@
     <link href="<?php echo base_url() ; ?>css/bootstrap-responsive.min.css" rel="stylesheet">
     <link id="base-style" href="<?php echo base_url() ; ?>css/style.css" rel="stylesheet">
     <link id="base-style-responsive" href="<?php echo base_url() ; ?>css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url() ; ?>css/farbtastic.css" type="text/css" />
     <!-- end: CSS -->
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->

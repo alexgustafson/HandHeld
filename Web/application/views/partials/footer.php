@@ -34,7 +34,7 @@
 <script type="text/javascript" src='<?php echo base_url() ; ?>js/fullcalendar.min.js'></script>
 
 <script type="text/javascript" src='<?php echo base_url() ; ?>js/jquery.dataTables.min.js'></script>
-
+<script type="text/javascript" src='<?php echo base_url() ; ?>js/farbtastic.js'></script>
 <script src="<?php echo base_url() ; ?>js/excanvas.js"></script>
 <script src="<?php echo base_url() ; ?>js/jquery.flot.min.js"></script>
 <script src="<?php echo base_url() ; ?>js/jquery.flot.pie.min.js"></script>

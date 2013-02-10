@@ -145,8 +145,8 @@ class Articles extends CI_Controller {
     $i = 0;
     foreach($fields as $field)
     {
-      if(isset($data[$i])){
-        $template_fields[$i] = create_html_for_field($field, $data[$i]);
+      if(isset($data->{$field->id})){
+        $template_fields[$i] = create_html_for_field($field, $data->{$field->id});
       }else{
         $template_fields[$i] = create_html_for_field($field);
       }

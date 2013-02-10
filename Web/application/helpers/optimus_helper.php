@@ -12,14 +12,15 @@
     $snippet = "";
     $value = "";
 
-    if (isset($data->value))
+    if (isset($data))
     {
-      $value = $data->value;
+      $value = $data;
     }
 
     if (!isset($field->children))
     {
-      $snippet = create_snippet($field, $value);
+      $name = 'data[' . $field->id . ']';
+      $snippet = create_snippet($name, $field, $value);
 
     } else
     {
@@ -33,9 +34,15 @@
                   </div>
                   <div class="box-content">';
 
-      foreach ($field->children as $child)
+      foreach ($field->children as $key => $child)
       {
-        $snippet = $snippet . create_snippet($child, $value);
+        $name = 'data[' . $field->id . ']'.'[' . $child->id . ']';
+        if(isset($data->{$child->id})){
+          $snippet = $snippet . create_snippet($name, $child, $data->{$child->id});
+        }else{
+          $snippet = $snippet . create_snippet($name, $child, "");
+        }
+
       }
 
       $snippet = $snippet . '</div></div>';
@@ -46,7 +53,7 @@
 
   }
 
-  function create_snippet($field, $value)
+  function create_snippet($name, $field, $value)
   {
     $snippet = '';
     switch ($field->field_type_name)
@@ -56,7 +63,7 @@
         $snippet = '<div class="control-group">
 							      <label class="control-label">' . $field->name . '</label>
 							      <div class="controls">
-								      <input type="text" class="span6" value="' . $value . '" name="data[' . $field->id . ']">
+								      <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 							      </div>
 							    </div>';
 
@@ -66,7 +73,7 @@
         $snippet = '<div class="control-group">
 							      <label class="control-label">' . $field->name . '</label>
 							      <div class="controls">
-							        <input type="text" class="span6" value="' . $value . '" name="data[' . $field->id . ']">
+							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
 							      </div>
 							    </div>';
@@ -81,7 +88,19 @@
         $snippet = '<div class="control-group">
 							      <label class="control-label">' . $field->name . '</label>
 							      <div class="controls">
-								      <input type="text" class="span6" value="' . $value . '" name="data[' . $field->id . ']">
+								      <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
+							      </div>
+							    </div>';
+
+        break;
+      case "color":
+
+        $snippet = '<div class="control-group">
+							      <label class="control-label">' . $field->name . '</label>
+							      <div class="controls">
+								      <input type="text" class="color" style="background-color:' . $value . '" name="'.$name.'" value="' . $value . '" />
+								      <button class="btn btn-mini btn-choose-color">Color</button>
+                      <div class="colorpicker" style="display: none;"></div>
 							      </div>
 							    </div>';
 
@@ -92,7 +111,7 @@
         $snippet = '<div class="control-group">
 							      <label class="control-label">' . $field->name . '</label>
 							      <div class="controls">
-							        <input type="text" class="span6" value="' . $value . '" name="data[' . $field->id . ']">
+							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
 							      </div>
 							    </div>';

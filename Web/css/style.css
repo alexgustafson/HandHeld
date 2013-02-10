@@ -1391,3 +1391,19 @@ div.uploader{
     width: 760px;
     z-index: 1050;
 }
+
+.modal-color-selector {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    left: 40%;
+    margin: -250px 0 0 -280px;
+    overflow: auto;
+    position: fixed;
+    top: 50%;
+    width: 260px;
+    z-index: 1050;
+}
+

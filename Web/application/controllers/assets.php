@@ -85,7 +85,7 @@ class Assets extends CI_Controller{
         array(
           'driver' => 'LocalFileSystem',
           'path'   => set_realpath('uploads'),
-          'URL'    => site_url('uploads') . '/'
+          'URL'    => base_url('uploads') . '/'
           // more elFinder options here
         )
       ),

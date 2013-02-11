@@ -20,7 +20,7 @@
           </div>
           <div class="sortable row-fluid">
 
-            <a  href="/templates/newTemplate"><button class="btn btn-large">Create New Template</button></a>
+            <a  href="newTemplate"><button class="btn btn-large">Create New Template</button></a>
 
 
           </div>

@@ -56,7 +56,7 @@
       }
     }
 
-    public function edit($id)
+    public function edit($id = null)
     {
       if ($id == 'cancel')
       {
@@ -130,5 +130,10 @@
       redirect(base_url() . 'documents/build/'.$document_id);
 
     }
+
+  public function getVersionForDocument($id)
+  {
+    echo $this->Document_model->get_version_for_document($id);
+  }
 
   }

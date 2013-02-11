@@ -60,6 +60,13 @@
                             <input type="text" class="span6 typeahead" id="typeahead" name="document_name" value="<?php echo $document->name ?>">
                         </div>
                     </div>
+                  <div class="control-group">
+                    <label class="control-label" for="typeahead">Version</label>
+
+                    <div class="controls">
+                      <input type="text" class="span6 typeahead" id="typeahead" name="version" value="<?php echo $document->version ?>">
+                    </div>
+                  </div>
                     <div class="form-actions">
                         <input type="hidden" name="document_id" value="<?php echo $document->id ?>">
                         <button type="submit" class="btn btn-primary">Update</button>

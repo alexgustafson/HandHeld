@@ -33,17 +33,28 @@
       return $query->result();
     }
 
+    public function get_version_for_document($id = null)
+    {
+      $this->db->select('version');
+      $this->db->from('document');
+      $this->db->where('document.id', $id);
+      $query = $this->db->get();
+      $result =  $query->result();
+
+      return $result[0]->version;
+    }
+
     public function set_document()
     {
 
       $id = $this->input->post('document_id');
       $name = $this->input->post('document_name');
-
+      $version = $this->input->post('version');
 
       if($id) //update
       {
 
-        $data = array('name' => $name);
+        $data = array('name' => $name, 'version' => $version);
         $this->db->where('document.id', $id);
         $this->db->update('document', $data);
 

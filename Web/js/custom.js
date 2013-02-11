@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $(".image-select").click(function(){
         //alert(this.getAttribute('src'));
-        selected_image_url = this.getAttribute('src');
+        selected_image_url = this.getAttribute('alt');
         $('#myModalSelectFile').modal('hide');
         //$parent = $selected_field.parent();
         $sibling = $selected_field.prev();
@@ -246,7 +246,7 @@ function template_functions(){
 
 	/* ---------- File Manager ---------- */
 	var elf = $('.file-manager').elfinder({
-		url : 'http://handheld.localhost/assets/elfinder_ini',  // connector URL (REQUIRED)
+		url : 'elfinder_ini',  // connector URL (REQUIRED)
 	}).elfinder('instance');
 
 

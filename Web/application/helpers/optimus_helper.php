@@ -88,7 +88,7 @@
 							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
 								      <div>
-								      <img src="' . $value . '" alt="' . $field->name . '">
+								      <img src="'. base_url('uploads/' . $value ) .'" alt="' . $value . '">
 								      </div>
 							      </div>
 							    </div>';
@@ -106,6 +106,11 @@
 
         break;
       case "color":
+
+        if($value == "")
+        {
+          $value = '#FFFFFF';
+        }
 
         $snippet = '<div class="control-group">
 							      <label class="control-label">' . $field->name . '</label>
@@ -153,7 +158,7 @@
 							      <div class="controls">
 							        <input type="text" class="span6" value="' . $value . '" name="'.$name.'">
 								      <button class="btn btn-mini btn-select-file">Select Image</button>
-								      <img src="' . $value . '" alt="' . $field->name . '">
+								      <img src="'. base_url('uploads/' . $value ) .'" alt="' . $value . '">
 							      </div>
 							    </div>';
 

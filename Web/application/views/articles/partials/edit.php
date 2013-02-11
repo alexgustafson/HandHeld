@@ -64,7 +64,7 @@
 
         <?php foreach($images as $image): ?>
 
-              <a style="background:url(<?php echo '/uploads/' . $image->filename ?>);max-width: 300px" title="<?php echo $image->filename ?>"><img class="image-select" src="<?php echo '/uploads/' . $image->filename ?>" alt="<?php echo $image->filename ?>"></a>
+              <a style="background:url(<?php echo '/uploads/' . $image->filename ?>);max-width: 300px" title="<?php echo $image->filename ?>"><img class="image-select" src="<?php echo base_url("uploads/". $image->filename); ?>" alt="<?php echo $image->filename ?>"></a>
 
         <?php endforeach ?>
 

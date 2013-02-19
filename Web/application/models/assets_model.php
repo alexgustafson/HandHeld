@@ -18,9 +18,9 @@
       parent::__construct();
       $this->load->database();
       $this->load->helper('path');
-      $this->deploy_folder = set_realpath('deploy');
-      $this->asset_folder = set_realpath('uploads');
-      $this->db_folder = set_realpath('application/db');
+      $this->deploy_folder = './deploy/';
+      $this->asset_folder = './uploads/';
+      $this->db_folder = './application/db/';
     }
 
     public function get_deploy_folder_path()

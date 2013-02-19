@@ -1,0 +1,25 @@
+{
+     "2":"Computer Museum",
+     "46": {
+         "1":"ZX Spectrum",
+         "3":"12",
+         "47":"#8a8a8a",
+         "55":"retroKeyUp.png",
+         "56":"retroKeyDown.png"}
+     ,"45":{
+         "1":"Commodore 64",
+         "3":"13",
+         "47":"#8a8a8a",
+         "55":"retroKeyUp.png",
+         "56":"retroKeyDown.png"}
+     ,"48":{"1":"Lilith Computer",
+         "3":"10",
+         "47":"#8a8a8a",
+         "55":"retroKeyUp.png",
+         "56":"retroKeyDown.png"}
+     ,"50":{"1":"Commodore Amiga 500",
+         "3":"11",
+         "47":"#8a8a8a",
+         "55":"retroKeyUp.png",
+         "56":"retroKeyDown.png"}
+}

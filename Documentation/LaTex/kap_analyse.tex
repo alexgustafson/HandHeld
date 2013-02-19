@@ -1,0 +1,61 @@
+\chapter{Recherche}
+
+\section{Content Deployment}
+Es gibt diverse Ansätze um einer App den aktuellen Content zu übergeben. Hier sollen verschiedene Möglichkeiten aufgezeigt und deren Vor- bzw. Nachteile kurz erläutert werden.
+
+\subsection{Ganze App aktualisieren}
+Eine Möglichkeit ist selbstverständlich bei jeder Änderung des Inhalts die gesamte App zu aktualisieren. Bei Apps mit statischem Inhalt welcher sehr selten wechselt kann das durchaus ein gangbarer Weg sein. Hat die App aber einen grösseren Umfang und werden regelmässig Inhalte geändert ist diese Methode nicht geeignet da viele Anwender keine automatische Aktualisierung ihrer Apps zulassen und jedem Update zustimmen müssen.
+
+\subsection{Web Application}
+Bei einer Web Application wird der Inhalt jedes Mal wenn die App genutzt wird neu geladen. Grundsätzlich handelt es sich um eine Website welche für die verschiedenen Geräte angepasst wird. Der Vorteil dieser Methode besteht in der relativ einfachen Umsetzung. Damit die App genutzt werden kann, muss eine Internetverbindung bestehen. Dies ist natürlich ein Nachteil, da dies nicht immer gewährleistet werden kann und insbesondere im Ausland hohe Roaminggebühren anfallen können.
+
+\subsection{Nur Daten aktualisiern}
+Um eine App mit den möglichst aktuellen Daten auch offline nutzen zu können, muss sich die App jeweils die neuen Daten herunterladen wenn eine Netzwerkverbindung zur Verfügung steht. Der Vorteil ist natürlich, dass bei Inhaltsaktualisierungen nicht die ganze App aktualisiert werden muss und die App offline genutzt werden kann. Dafür muss in der App zusätzliche Logik eingebaut werden. Es muss jeweils überprüft werden ob aktuellere Daten verfügbar sind und diese müssen dann bei Bedarf und Möglichkeit heruntergeladen und überprüft werden. Besonders bei grossen Datenbeständen lohnt es sich, wenn nur Änderungen und nicht der gesamte Datenbestand übermittelt wird.
+
+
+
+\section{Marktsituation}
+Wir haben uns mit der Frage beschäftigt, welche Produkte es bereits gibt um einer App die Daten über ein CMS zur Verfügung zu stellen.
+
+Uns sind einige  interessante Produkte aufgefallen, welche die Plattformunabhängige Entwicklung von Apps erleichtern sollen und die Verteilung auf den verschiedenen Systemen vereinfachen. Dies geht zum Teil so weit, dass die aktualisierten Apps automatisch in den verschiedenen App Stores eingespielt werden und dass die Aktualisierung der bereits installieretn Apps automatisch überwacht wird.
+
+Weiter gibt es eine Menge an Produkten welche die Entwicklung von Web Applications erleichtern sollen.
+
+Wir sind aber auf kein käufliches oder freies Produkt gestossen, welches sich auf die effizeinte Verteilung von Inhalten auf eine App spezialisiert. Es gibt zwar diverse Firmen welche Apps entwickeln und dem App-Betreiber ermöglichen Content über ein CMS zu verwalten. Da diese Firmen aber inhouse Lösungen benutzen, hatten wir keinen Einblick in die Art und Weise wie sie die Daten übermitteln. 
+
+
+\section{Datenspeicherung}
+Die Form der Datenspeicherung hat Einfluss auf die Möglichkeiten wie die Daten verwaltet und übermittelt werden können.
+
+XML Files wären eine Möglichkeit, Daten textbasiert zu speichern. Da wir die Möglichkeit in Betracht ziehen die Daten über github zu verwalten, könnte diese Form der Datenspeicherung sehr nützlich sein. Ein Vorteil von dieser Variante wäre ausserdem, dass einzelne Dateien übermittelt werden können.
+
+Die Speicherung der Daten in einer relationalen Datenbank hätte den Vorteil, dass durch die binäre Speicherung weniger Speicherplatz benötigt wird und der Zugriff grundsätzlich etwas schneller ist. Da dies aber vor allem bei grossen Datenmengen zum tragen kommt, ist dies kein ausschlaggebendes Kriterium. Mit SQLite existiert ausserdem eine Datenbank welche von allen gängigen Smartphone Systemen gut unterstützt wird.
+
+
+\section{Verfahren für die Datenübermittlung}
+Unser Ziel ist es eine Umgebung zu entwicklen, in welcher eine Appe mit aktuellen Inhalten versorgt wird, die Inhalte aber auch offline Nutzen kann. 
+
+\subsection{Änderungen Übermittlung}
+Um auch bei häufigen Änderungen das zu übertragende Datenvolumen möglichst klein zu halten ist es wichtig, dass nicht bei jeder Änderung sämtliche Daten übertragen werden. Es sollen jeweils nur die geänderten Daten übermittelt werden.
+
+\subsection{git}
+Versionierungssysteme wie z.B. git \cite{git} setzen diese Technik um. Wir haben deshalb die Möglichkeit geprüft, die Datenübermittlung vom CMS zur Mobile App über github zu lösen. Ein Vorteil bei diesem Vorgehen wäre, dass die Logik zur Ermittlung der Änderungen nicht neu entwickelt werden müsste. Da git zwar Änderungen in Binärdateien erkennt, aber nur bei Text-Dateien die Differenz markieren kann, kommt der Vorteil von git nur bei Text-Dateien zum Tragen. Dieses Verfahren würde deshalb die Auswahl des Datenformats beeinflussen. Ausserdem gibt es zwar für alle gängigen Smartphone Systeme git-Clients, diese haben aber nicht alle Funktionen von git implmentiert.\\
+\\
+Der entscheidende Punkt welcher gegen den Einsatz von github sprach, liegt aber bei der Art und Weise wie github funktioniert. Änderungen welche auf github gepusht (heraufgeladen) werden, werden dort nur akzeptiert, wenn der Client zuvor die aktuellste Version gepullt (heruntergeladen) hatte und einen Merge (eine Art Synchronisation der Datenbestände) gemacht hatte. Das gibt dem Client die Möglichkeit nur die Änderungen zu pushen, und nicht alle Daten. Werden im CMS Daten geändert und dann auf github gepusht, werden also nur die Änderungen übermittelt.
+
+Fordert aber ein Client die aktuellen Daten an, macht er einen Pull und es wir ihm alles übermittelt. Die Mobile App würde sich also immer alle Daten herunterladen. \\
+\\
+Es gibt die Möglichkeit, Patches zu erstellen, welche nur gewisse Änderungen enthalten. Diese Patches könnten dann zu den mobilen Endgeräten übermittelt werden. Da nicht auf allen Endgeräten der selbe Stand der Daten vorhanden ist, müssten dies Patches verwaltet werden. Ausserdem unterstützen nicht alle freien git-Clients für Smartphone die Verwendung von Patches. \\
+\\
+Um mit github arbeiten zu können, müsste also sowohl Serverseitig die Patchverwaltung, wie auch in der Mobile App gewisse git-Funktionalität und die Patchverarbeitung aufwendig implementiert werden. Da dies den Rahmen dieser Arbeit sprengen würde und nicht dem Fokus dieser Arbeit entspricht haben wir diese Idee verworfen. 
+
+\subsection{Database Change Log Files}
+Sämtliche Änderungen in einer Datenbank kann man in einem Log File speichern. Dazu werden alle ausgeführten SQL Statements welche Änderungen in der Datenbank zur Folge haben in dieses Log File geschrieben. Erstellt man für jede Version der Datenbank ein eigenes solches Log File, kann man jede ältere Version der Datenbank in eine neuere Version überführen, indem man die entsprechenden SQL Statements sequentiell abarbeitet.
+
+Im Einsatz mit einer Mobile App werden viele zusätzliche Resourcen wie Bilder, Videos, usw. genutzt. Es müsste also ebenfalls festgehalten werden, welche Resourcen hinzugefügt wurden. Diese Resourcen können in einem seperaten Log File aufgelistet werden, welches ebenfall für jede Version der Datenbank erstellt wird.\\
+\\
+Anstatt die gesamte Datenbank und sämtliche Resourcen zu übermitteln, müsste der Mobile App anhand dieser beiden Log Files nur die neuen Resourcen und die nötigen SQL Statements mit den Datenbankänderungen übermittelt werden. 
+
+Um auf dem mobilen Endgerät Platz zu sparen, empfiehlt es sich nicht mehr gebrauchte Resourcen zu löschen. Um dies zu bewerkstelligen kann die mobile App ihren Datenbestand nach nicht mehr gebrauchten Resourcen durchsuchen, oder es wird mit dem Update eine Liste mitgegeben welche die zu löschenden Resourcen enthält.
+
+

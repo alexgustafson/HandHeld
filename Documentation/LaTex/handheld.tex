@@ -14,13 +14,23 @@
 \pagestyle{headings}
 \pagenumbering{arabic}  % 1, 2, 3, 4, ...
 \setcounter{page}{1}
-\input{kap_projektinformationen}
-\input{kap_strukturen}
+\input{kap_einleitung}
+\input{kap_projektmanagement}
+\input{kap_analyse}
+\input{kap_implementation}
+\input{kap_beispielapp}
+\input{kap_fazit}
+
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
-\bibliographystyle{alphadin} %oder plainnatDeutsch (alphadin geht nicht mit natbib)amsalpha
-\bibliography{literatur}
+
+\listoffigures
+\input{kap_bibliographie}
+%\printbibliography
+%\bibliographystyle{alphadin} %oder plainnatDeutsch (alphadin geht nicht mit natbib)amsalpha
+%\bibliography{literatur}
 %\clearpage{\pagestyle{empty}\cleardoublepage}
 %\printindex										%fuer den Index
+
 \end{document}
 

@@ -9,6 +9,8 @@
 
 class Assets extends CI_Controller{
 
+
+
   public function __construct()
   {
     parent::__construct();
@@ -16,7 +18,10 @@ class Assets extends CI_Controller{
     $this->load->model('Document_model');
     $this->load->model('Article_model');
     $this->load->model('Template_model');
+
   }
+
+
 
   public function index($action = null)
   {
@@ -85,7 +90,7 @@ class Assets extends CI_Controller{
         array(
           'driver' => 'LocalFileSystem',
           'path'   => set_realpath('uploads'),
-          'URL'    => site_url('uploads') . '/'
+          'URL'    => base_url('uploads') . '/'
           // more elFinder options here
         )
       ),

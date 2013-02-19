@@ -15,6 +15,7 @@
       $this->load->model('Document_model');
       $this->load->model('Article_model');
       $this->load->model('Template_model');
+      $this->load->model('Assets_model');
     }
 
     public function index($action = null)
@@ -117,23 +118,42 @@
       $action = $this->input->post('action');
       $startArticleID = $this->input->post('startArticleID');
 
-      if($action == 'setStartArticle')
+      if ($action == 'setStartArticle')
       {
         $document = $this->Document_model->set_startArticle_for_document($startArticleID, $document_id);
-      }elseif($action == 'create_and_setStartArticle')
+      } elseif ($action == 'create_and_setStartArticle')
       {
         $article = $this->Article_model->set_article();
         $document = $this->Document_model->set_startArticle_for_document($article->id, $document_id);
-        redirect(base_url() . 'documents/build/'.$document->id);
+        redirect(base_url() . 'documents/build/' . $document->id);
       }
 
-      redirect(base_url() . 'documents/build/'.$document_id);
+      redirect(base_url() . 'documents/build/' . $document_id);
 
     }
 
-  public function getVersionForDocument($id)
-  {
-    echo $this->Document_model->get_version_for_document($id);
-  }
+
+    public function publish($id)
+    {
+      $files = $this->Assets_model->get_all_assets();
+
+      foreach ($files as $file)
+      {
+        copy($this->Assets_model->get_asset_folder_path() . $file->filename, $this->Assets_model->get_deploy_folder_path() . $file->filename);
+
+      }
+
+      copy($this->Assets_model->get_db_folder_path() . "handheld.db", $this->Assets_model->get_deploy_folder_path() . "handheld.db");
+
+      $this->Document_model->set_publish_document($id);
+
+      redirect(base_url() . 'documents/');
+
+    }
+
+    public function getVersionForDocument($id)
+    {
+      echo $this->Document_model->get_version_for_document($id);
+    }
 
   }

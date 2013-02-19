@@ -33,7 +33,10 @@
         <?php endif ?>
     </td>
     <td class="center">
-        <a class="btn btn-success" href="build/<?php echo $document->id ?>">
+        <a class="btn btn-success" href="publish/<?php echo $document->id ?>">
+        <i class="icon-share icon-white"></i>
+        </a>
+        <a class="btn btn-info" href="build/<?php echo $document->id ?>">
             <i class="icon-zoom-in icon-white"></i>
         </a>
         <a class="btn btn-info" href="edit/<?php echo $document->id ?>">

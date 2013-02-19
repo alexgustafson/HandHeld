@@ -44,6 +44,21 @@
       return $result[0]->version;
     }
 
+    public function set_publish_document($id = null)
+    {
+      if($id != null)
+      {
+        $data = array('status' => 'Online', 'last_publication_date' => date("F j, Y, g:i a"));
+        $this->db->where('document.id', $id);
+        $this->db->update('document', $data);
+
+        return $this->get_document_by_id($id);
+      }
+
+      redirect('/documents');
+
+    }
+
     public function set_document()
     {
 

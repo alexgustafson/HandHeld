@@ -9,10 +9,36 @@
   class Assets_model extends CI_Model
   {
 
+    var $deploy_folder;
+    var $asset_folder;
+    var $db_folder;
+
     function __construct()
     {
       parent::__construct();
       $this->load->database();
+      $this->load->helper('path');
+      $this->deploy_folder = set_realpath('deploy');
+      $this->asset_folder = set_realpath('uploads');
+      $this->db_folder = set_realpath('application/db');
+    }
+
+    public function get_deploy_folder_path()
+    {
+
+      return $this->deploy_folder;
+    }
+
+    public function get_asset_folder_path()
+    {
+
+      return $this->asset_folder;
+    }
+
+    public function get_db_folder_path()
+    {
+
+      return $this->db_folder;
     }
 
     public function get_all_assets()

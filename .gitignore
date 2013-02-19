@@ -13,6 +13,8 @@
 /.idea/*
 */.idea/
 
+#deployment folder
+*/deploy/*
 
 #utilities folder
 /utils/*

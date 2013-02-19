@@ -3,14 +3,35 @@
 %***************Start Paket-Einbindungen******************
 \usepackage[latin1]{inputenc} %textcodierung, in windows auch latin1, in unix utf8
 \usepackage[ngerman]{babel}		%deutsche Sprachtrennung
+\usepackage{csquotes}
 \usepackage{amsfonts,amsmath,amsthm}	
 \usepackage{makeidx}	%fuer Verwendung des index'
 \usepackage[colorlinks=false,pdfborder={0 0 0},plainpages=false]{hyperref} %fuer hyperlinks im pdf-format
+
 %GENAU DANN verwenden, wenn digital veroeffentlicht
 %\usepackage{sidecap} % um \caption{?} neben bildern möglich zu machen
 \usepackage{pgf} %fuer grafiken
 \usepackage{here}
 \usepackage{graphicx}
+
+% BibLaTeX
+%
+% We are using the 'alphabetic' style.
+% The default is the 'numerical' style.
+%\usepackage[]{biblatex}
+\usepackage[backend=biber]{biblatex}
+%\usepackage[style=numeric,backend=biber]{biblatex}
+%\usepackage[style=authoryear,backend=biber]{biblatex}
+%\usepackage[style=alphabetic,backend=biber]{biblatex}
+%\usepackage[style=alphabetic,backend=biber]{biblatex}
+%
+% BibLaTex Database
+\addbibresource{literatur.bib}
+%\bibliography{literatur}
+
+
+
+
 
 % Glossar
 %\usepackage{glossaries}

@@ -45,6 +45,7 @@
             <a class="brand" href="<?php echo base_url() ; ?>index.php"> <img alt="Optimus Dashboard" src="<?php echo base_url() ; ?>img/logo20.png" /> <span>HandHeld</span></a>
 
             <!-- start: Header Menu -->
+          <!--
             <div class="btn-group pull-right" >
                 <a class="btn" href="#">
                     <i class="icon-warning-sign"></i><span class="hidden-phone hidden-tablet"> notifications</span> <span class="label label-important hidden-phone">2</span> <span class="label label-success hidden-phone">11</span>
@@ -58,11 +59,11 @@
                 <a class="btn" href="#">
                     <i class="icon-wrench"></i><span class="hidden-phone hidden-tablet"> settings</span>
                 </a>
-                <!-- start: User Dropdown -->
+                <!-- start: User Dropdown -
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="icon-user"></i><span class="hidden-phone hidden-tablet"> admin</span>
                     <span class="caret"></span>
-                </a>
+                </a> -->
                 <ul class="dropdown-menu">
                     <li><a href="#">Profile</a></li>
                     <li class="divider"></li>

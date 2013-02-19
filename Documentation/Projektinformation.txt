@@ -1,0 +1,31 @@
+Thema: Contentübergabe an eine Mobile App über ein CMS
+
+
+Ausgangslage:
+Für content-basierte Mobile Apps müssen immer wieder neue Inhalte publiziert werden. Dies sollte jeweils vom Betreiber der App auf einfache Art möglich sein. Ausserdem sollte der Inhalt in der App automatisch aktualisiert werden, ohne dass die ganze App aktualisiert werden muss, und auch ohne dass der Konsument aktiv wird. Beispiele für solche Apps sind Apps von Museen, Ausstellungen, Konzerten, Konzertbetreiber, Zeitschriften.
+
+Ziele Der Arbeit
+Das Ziel der Seminararbeit ist es aufzuzeigen, welche Systeme, Prozesse und Design-Patterns wichtig sind und in Frage kommen um diesen Anforderungen gerecht zu werden. Insbesondere die Schwierigkeit, möglichst effizient aktuelle Daten dem App-Benutzer zur Verfügung zu stellen soll dabei beachtet werden.
+Falls möglich können bereits Teile der praktisch umgesetzt werden: z.B. kann ein CMS bereitgestellt werden, über welches der Betreiber der App die Inhalte bereitstellen und zur Aktualisierung für die App freigeben kann. Weiter kann eine App entwickelt werden, welche ihre Inhalte über das CMS bezieht und die definierten Prozesse umsetzt und Design-Pattern implementiert.
+
+Aufgabenstellung:
+Definition von Systemen, Prozessen und Design-Patterns welche wichtig sind und in Frage kommen um einer content-basierten App Inhalte über ein CMS zur Verfügung zustellen und die Inhalte der App effizient aktualisiert zu halten.
+
+
+Erwartete Resultate:
+Dokument, welches die Prozesse und Designpattern aufzeigt und die Interaktion zwischen CMS und App verdeutlicht.
+Evtl. können bereits gewisse Teile praktisch umgesetzt werden.
+
+Geplante Termine:
+12.09.2012 Kickoff
+26.11.2012 Abgabe Teaser
+ 5.12.2012 Arbeitstreffen
+20.02.2012 Präsentation des Projekts
+
+Name des Projekts: Contentübergabe an eine Mobile App über ein CMS
+
+
+Projektbeschreibung:
+Für content-basierte Mobile Apps müssen immer wieder neue Inhalte publiziert werden. Dies sollte jeweils vom Betreiber der App auf einfache Art möglich sein. Ausserdem sollte der Inhalt in der App automatisch aktualisiert werden, ohne dass die ganze App aktualisiert werden muss, und auch ohne dass der Konsument aktiv wird.
+In dieser Seminararbeit soll aufgezeigt werden, welche Systeme, Prozesse und Design-Patterns wichtig sind und in Frage kommen um diesen Anforderungen gerecht zu werden. Insbesondere die Schwierigkeit, möglichst effizient aktuelle Daten dem App-Benutzer zur Verfügung zu stellen soll dabei beachtet werden.
+Diese Seminararbeit wird durchgeführt von Alex Gustafson und Ramon Schilling

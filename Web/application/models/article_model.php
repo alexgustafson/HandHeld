@@ -85,15 +85,7 @@
 
     public function encode_article_data($article_id, $data)
     {
-      //$article = $this->get_article_by_id($article_id);
-      //$article = $article[0];
 
-      //$fields = $this->Template_model->get_all_children_fields($article->template_id);
-
-      //foreach($fields as &$field)
-      //{
-      //  $field->value = $data[$field->id];
-      //}
 
       $data = json_encode($data);
 

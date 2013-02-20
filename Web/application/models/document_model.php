@@ -35,7 +35,7 @@
 
     public function get_version_for_document($id = null)
     {
-      $this->db->select('version');
+      $this->db->select('deployed_version');
       $this->db->from('document');
       $this->db->where('document.id', $id);
       $query = $this->db->get();
@@ -48,7 +48,9 @@
     {
       if($id != null)
       {
-        $data = array('status' => 'Online', 'last_publication_date' => date("F j, Y, g:i a"));
+        $data = array('status' => 'Online',
+                      'last_publication_date' => date("F j, Y, g:i a"),
+                      'deployed_version' => $this->get_version_for_document);
         $this->db->where('document.id', $id);
         $this->db->update('document', $data);
 

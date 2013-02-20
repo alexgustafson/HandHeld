@@ -162,4 +162,17 @@
       redirect(base_url() . 'documents/');
     }
 
+    public function backup()
+    {
+      copy($this->Assets_model->get_db_folder_path() . "handheld.db", $this->Assets_model->get_restore_folder_path() . "handheld.db");
+      $files = $this->Assets_model->get_all_assets();
+      foreach ($files as $file)
+      {
+        copy($this->Assets_model->get_restore_folder_path() . $file->filename, $this->Assets_model->get_restore_folder_path() . $file->filename);
+
+      }
+
+      redirect(base_url() . 'documents/');
+    }
+
   }

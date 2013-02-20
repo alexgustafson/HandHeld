@@ -41,7 +41,7 @@
       $query = $this->db->get();
       $result =  $query->result();
 
-      return $result[0]->version;
+      return $result[0]->deployed_version;
     }
 
     public function set_publish_document($id = null)

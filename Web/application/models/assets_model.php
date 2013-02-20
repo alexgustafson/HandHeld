@@ -12,6 +12,7 @@
     var $deploy_folder;
     var $asset_folder;
     var $db_folder;
+    var $restore_folder;
 
     function __construct()
     {
@@ -21,6 +22,7 @@
       $this->deploy_folder = './deploy/';
       $this->asset_folder = './uploads/';
       $this->db_folder = './application/db/';
+      $this->restore_folder = './application/restore/';
     }
 
     public function get_deploy_folder_path()
@@ -39,6 +41,12 @@
     {
 
       return $this->db_folder;
+    }
+
+    public function get_restore_folder_path()
+    {
+
+      return $this->restore_folder;
     }
 
     public function get_all_assets()

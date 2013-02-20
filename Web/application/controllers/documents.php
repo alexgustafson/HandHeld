@@ -133,13 +133,14 @@
 
     public function publish($id)
     {
+      $this->Document_model->set_publish_document($id);
       $files = $this->Assets_model->get_all_assets();
       foreach ($files as $file)
       {
         copy($this->Assets_model->get_asset_folder_path() . $file->filename, $this->Assets_model->get_deploy_folder_path() . $file->filename);
       }
       copy($this->Assets_model->get_db_folder_path() . "handheld.db", $this->Assets_model->get_deploy_folder_path() . "handheld.db");
-      $this->Document_model->set_publish_document($id);
+
       redirect(base_url() . 'documents/');
     }
 

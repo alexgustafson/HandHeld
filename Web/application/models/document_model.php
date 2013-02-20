@@ -44,13 +44,24 @@
       return $result[0]->deployed_version;
     }
 
+    public function get_undeployed_version_for_document($id = null)
+    {
+      $this->db->select('version');
+      $this->db->from('document');
+      $this->db->where('document.id', $id);
+      $query = $this->db->get();
+      $result =  $query->result();
+
+      return $result[0]->version;
+    }
+
     public function set_publish_document($id = null)
     {
       if($id != null)
       {
         $data = array('status' => 'Online',
                       'last_publication_date' => date("F j, Y, g:i a"),
-                      'deployed_version' => $this->get_version_for_document);
+                      'deployed_version' => $this->get_undeployed_version_for_document);
         $this->db->where('document.id', $id);
         $this->db->update('document', $data);
 

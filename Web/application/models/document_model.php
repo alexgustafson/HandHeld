@@ -59,16 +59,16 @@
     {
       if($id != null)
       {
+        $deploy_version = $this->get_undeployed_version_for_document($id);
         $data = array('status' => 'Online',
                       'last_publication_date' => date("F j, Y, g:i a"),
-                      'deployed_version' => $this->get_undeployed_version_for_document);
+                      'deployed_version' => $deploy_version
+                      );
         $this->db->where('document.id', $id);
         $this->db->update('document', $data);
 
-        return $this->get_document_by_id($id);
       }
 
-      redirect('/documents');
 
     }
 

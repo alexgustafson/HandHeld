@@ -133,6 +133,7 @@
 
     public function publish($id)
     {
+
       $this->Document_model->set_publish_document($id);
       $files = $this->Assets_model->get_all_assets();
       foreach ($files as $file)
@@ -141,7 +142,7 @@
       }
       copy($this->Assets_model->get_db_folder_path() . "handheld.db", $this->Assets_model->get_deploy_folder_path() . "handheld.db");
 
-      redirect(base_url() . 'documents/');
+      redirect(base_url() . '/documents/');
     }
 
     public function getVersionForDocument($id)
@@ -169,7 +170,7 @@
       $files = $this->Assets_model->get_all_assets();
       foreach ($files as $file)
       {
-        copy($this->Assets_model->get_restore_folder_path() . $file->filename, $this->Assets_model->get_restore_folder_path() . $file->filename);
+        copy($this->Assets_model->get_asset_folder_path() . $file->filename, $this->Assets_model->get_restore_folder_path() . $file->filename);
 
       }
 
